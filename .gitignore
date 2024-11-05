@@ -1,0 +1,15 @@
+vendor
+tests/
+SQL/
+includes/library/rachet
+error.log
+filestore
+.phpintel
+*.png
+*.jpg
+*.gif
+*.mp4
+*.zip
+*.webp
+*.log
+*.env
