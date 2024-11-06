@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,7 +10,7 @@
  * @Description Vista del área "Privacidad" de la Cuenta
  *
  *
-*/
+ */
 ?>
 
 <article id="memberAccountPrivacy">
@@ -20,10 +20,10 @@
                 <div class="switch">
                     <p>&iquest;Qui&eacute;n puede ver tus shouts?</p>
                     <label>
-                    Todos
-                    <input type="checkbox" >
-                    <span class="lever"></span>
-                    S&oacute;lo quien yo sigo
+                        Todos
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        S&oacute;lo quien yo sigo
                     </label>
                 </div>
             </div>

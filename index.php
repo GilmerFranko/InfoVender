@@ -13,7 +13,7 @@
  */
 
 /* Definimos la cabecera*/
-define('SYC', TRUE);
+define('VCO', TRUE);
 
 /* Incluimos el archivo de ejecución principal */
 require 'includes/common.php';

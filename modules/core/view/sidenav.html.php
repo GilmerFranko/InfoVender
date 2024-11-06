@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,9 +10,9 @@
  * @Description Archivo que incluye el ménú lateral
  *
  *
-*/
+ */
 
-$sidenav_fixed = ($sModule == 'admin' OR $sModule == 'mod') ? 'sidenav-fixed' :'';
+$sidenav_fixed = ($sModule == 'admin' or $sModule == 'mod') ? 'sidenav-fixed' : '';
 ?>
 
 <ul id="user-menu" class="sidenav <?php echo $sidenav_fixed ?>">
@@ -20,7 +20,7 @@ $sidenav_fixed = ($sModule == 'admin' OR $sModule == 'mod') ? 'sidenav-fixed' :'
     <div class="user-view">
       <div class="col s4" bis_skin_checked="1">
         <a href="<?php echo gLink('members/account') ?>">
-          <img src="<?php echo $config['avatar_url'] . DS . $session->memberData['pp_thumb_photo'] ?>" width="100%" height="100%" alt="Tu avatar" class="circle responsive-img valign profile-image" >
+          <img src="<?php echo $config['avatar_url'] . DS . $session->memberData['pp_thumb_photo'] ?>" width="100%" height="100%" alt="Tu avatar" class="circle responsive-img valign profile-image">
         </a>
       </div>
       <a href="#name"><span class="name"><?php echo $session->memberData['name'] ?></span></a>
@@ -32,12 +32,12 @@ $sidenav_fixed = ($sModule == 'admin' OR $sModule == 'mod') ? 'sidenav-fixed' :'
   </li>
   <li class="divider" tabindex="-1"></li>
 
-  <!-- ./MENU BETREFERI -->
-  <?php if($session->is_admod == 1)
+  <!-- ./MENU VCO -->
+  <?php if ($session->is_admod == 1)
   {
     include Core::view('index.sidebar', 'admin'); // ADMINISTRACIÓN
   }
-  if($session->is_admod)
+  if ($session->is_admod)
   {
     include Core::view('index.sidebar', 'mod'); // MODERACIÓN
   } ?>

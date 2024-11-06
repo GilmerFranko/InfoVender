@@ -1,15 +1,15 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
  * @Description Vista de contacto
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -21,7 +21,7 @@ require Core::view('head', 'core');
 <!-- Body -->
 <section id="termsAndConditions" class="container">
     <h3 class="center-align">Términos y Condiciones</h3>
-    
+
     <div class="row">
         <div class="col s12">
             <p>Estos términos y condiciones regulan el uso del sitio web <strong><?php echo $config['script_name'] ?></strong>. Al acceder a este sitio web, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de estos términos, no utilices este sitio web.</p>
@@ -79,5 +79,5 @@ require Core::view('head', 'core');
 
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

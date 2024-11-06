@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  * @Description Controlador de las p�ginas est�ticas del sitio

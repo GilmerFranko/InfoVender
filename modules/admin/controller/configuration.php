@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
@@ -48,7 +48,7 @@ if (isset($_POST['save']))
         if (ctype_alnum($_POST['cookie_name']))
         {
             // NOMBRE DEL SITIO
-            $data['script_name'] = empty($_POST['script_name']) ? 'SYC' : htmlspecialchars($_POST['script_name']);
+            $data['script_name'] = empty($_POST['script_name']) ? 'VCO' : htmlspecialchars($_POST['script_name']);
             // SIGLAS DEL SITIO
             $data['script_abbreviation'] = cleanInput($_POST['script_abbreviation']);
             // 

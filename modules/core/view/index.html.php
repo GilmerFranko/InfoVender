@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,7 +10,7 @@
  * @Description Vista de la página principal
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -26,5 +26,5 @@ require Core::view('head', 'core');
 <!-- / Body -->
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

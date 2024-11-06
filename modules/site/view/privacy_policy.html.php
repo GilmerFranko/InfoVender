@@ -1,15 +1,15 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
  * @Description Vista de contacto
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -21,7 +21,7 @@ require Core::view('head', 'core');
 <!-- Body -->
 <section id="privacyPolicy" class="container">
     <h3 class="center-align">Política de Privacidad</h3>
-    
+
     <div class="row">
         <div class="col s12">
             <p>En <strong><?php echo $config['script_name'] ?></strong>, consideramos que la privacidad de nuestros visitantes es extremadamente importante. Esta política de privacidad describe detalladamente los tipos de información personal que recibimos y recopilamos cuando visitas <strong><?php echo $config['script_name'] ?></strong> y cómo la utilizamos. Esperamos que esta política de privacidad te ayude a tomar decisiones informadas sobre la información personal que nos proporcionas.</p>
@@ -86,5 +86,5 @@ require Core::view('head', 'core');
 
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

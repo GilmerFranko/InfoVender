@@ -13,7 +13,7 @@
  */
 
 /* Definimos la cabecera*/
-define('SYC', TRUE);
+define('VCO', TRUE);
 
 // Se debe denegar todas las ip menos las del mismo servidor
 

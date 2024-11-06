@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 class LogActivity extends Model
 {

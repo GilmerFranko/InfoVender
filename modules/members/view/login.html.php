@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,7 +10,7 @@
  * @Description Vista de la página principal
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -20,9 +20,9 @@ require Core::view('head', 'core');
     display: flex;
     justify-content: center;
   }
-  #modalRecover
-  {
-    background-color: #202123 ;
+
+  #modalRecover {
+    background-color: #202123;
   }
 </style>
 <!-- Body -->
@@ -47,7 +47,7 @@ require Core::view('head', 'core');
           <label for="password">Contrase&ntilde;a</label>
         </div>
       </div>
-      <div  class="row">
+      <div class="row">
         <div class="col s12">
           <button class="btn btn-primary btn-large w100 waves-effect waves-light" type="submit" name="login">Acceder
             <i class="material-icons right">send</i>
@@ -56,7 +56,7 @@ require Core::view('head', 'core');
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <label for ="keepOpen">
+          <label for="keepOpen">
             <input name="keepOpen" type="checkbox" class="filled-in" id="keepOpen" value="1" checked="checked">
             <span>Mantener sesiones anteriores abiertas</span>
           </label>
@@ -110,5 +110,5 @@ require Core::view('head', 'core');
 <!-- / Body -->
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

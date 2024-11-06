@@ -1,15 +1,15 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
  * @Description Pagina de preguntas frecuentes
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -19,8 +19,7 @@ require Core::view('head', 'core');
 <!-- / Header -->
 
 <style>
-    .collapsible-header
-    {
+    .collapsible-header {
         background-color: #313337;
     }
 </style>
@@ -50,7 +49,7 @@ require Core::view('head', 'core');
                     <div class="collapsible-header"><i class="material-icons">whatshot</i>¿Qué más hacer?</div>
                     <div class="collapsible-body"><span>Ahora selecciona si eres hombre o mujer y haz clic en Crear cuenta, si todo lo hiciste bien ya estás dentro de <?php echo $config['script_name'] ?>, ya puedes disfrutar de las apuestas de tus video juegos favoritos.</span></div>
                 </li>
-                
+
                 </li>
             </ul>
         </div>
@@ -59,5 +58,5 @@ require Core::view('head', 'core');
 <!-- / Body -->
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit; ?>
+<?php defined('VCO') || exit; ?>
 
 <!-- Include header -->
 <?php require Core::view('head', 'core'); ?>

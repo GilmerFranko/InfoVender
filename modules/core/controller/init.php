@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
@@ -21,27 +21,6 @@ $extra = Core::model('extra', 'core');
 $db = Core::model('db', 'core');
 /* ID del usuario */
 $m_id = $session->memberData['member_id'];
-
-// Comprueba bbcode
-$parser = new JBBCode\Parser();
-
-// Cargar los tags predeterminados (b, i, u, url, img, etc.)
-$parser->addCodeDefinitionSet(new JBBCode\DefaultCodeDefinitionSet());
-
-// Definir el BBCode para `color`
-$colorCode = new JBBCode\CodeDefinitionBuilder('color', '<span style="color:{option}">{param}</span>');
-$parser->addCodeDefinition($colorCode->build());
-
-// Definir el BBCode para `size`
-$parser->addCodeDefinition(\JBBCode\CodeDefinition::construct('size', '<span style="font-size:{option}px">{param}</span>', true));
-
-// Definir el BBCode para `font`
-$parser->addCodeDefinition(\JBBCode\CodeDefinition::construct("font", '<span style="font-family:{option}">{param}</span>', true));
-
-// Definir el BBCode para `code` con estilos Bootstrap
-$codeBuilder = new JBBCode\CodeDefinitionBuilder('code', '<pre><code class="bg-dark text-light p-2 rounded">{param}</code></pre>');
-$parser->addCodeDefinition($codeBuilder->build());
-
 
 // ESTABLECE ZONA HORARIA EN LA QUE SE BASAN LAS PUBLICACIONES
 date_default_timezone_set($session->memberData['pp_timezone']);

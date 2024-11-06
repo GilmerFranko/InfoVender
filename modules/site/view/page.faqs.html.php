@@ -1,10 +1,10 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  * @Description Pagina de preguntas frecuentes
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -15,14 +15,15 @@ require Core::view('head', 'core');
 
 <!-- Body -->
 <style type="text/css">
-    .collapsible-header
-    {
+    .collapsible-header {
         background-color: #313337;
     }
 </style>
 <section id="pageFAQ">
     <div class="container">
-        <center><h4>Centro de ayuda y preguntas frecuentes</h4></center>
+        <center>
+            <h4>Centro de ayuda y preguntas frecuentes</h4>
+        </center>
         Toque la pregunta en la que tenga dudas para leer la respuesta. <b>Actualizado 1 de marzo de 2024</b>
         <div style="text-align:justify;" class="flow-text">
             <ul class="collapsible popout">
@@ -83,13 +84,13 @@ require Core::view('head', 'core');
 <br>
 <br>
 
-    <!-- / Body -->
+<!-- / Body -->
 
-    <?php if( $session->is_admod || ($session->isAllowed('post_shout') && $session->memberData['pp_gender'] == 1) ) { ?>
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large purple darken-2 pulse" href="<?php echo $extra->generateUrl('shouts', 'new'); ?>">
-                <i class="large material-icons">add_a_photo</i>
-            </a>
-        </div>
-    <?php } ?>
-    
+<?php if ($session->is_admod || ($session->isAllowed('post_shout') && $session->memberData['pp_gender'] == 1))
+{ ?>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large purple darken-2 pulse" href="<?php echo $extra->generateUrl('shouts', 'new'); ?>">
+            <i class="large material-icons">add_a_photo</i>
+        </a>
+    </div>
+<?php } ?>

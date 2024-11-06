@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
@@ -12,7 +12,7 @@
  *
  */
 
-$page['name'] = 'SYC';
+$page['name'] = 'VCO';
 $page['code'] = 'adminContacts';
 
 // COMPROBAR SI SE HA ESPECIFICADO ELIMINAR

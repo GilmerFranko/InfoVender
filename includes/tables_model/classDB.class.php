@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  * @Description Este modelo se encarga de administrar la tabla Clases

@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,7 +10,7 @@
  * @Description Vista del área "Contraseña" de la sección "Contraseña" en la cuenta
  *
  *
-*/
+ */
 ?>
 
 <article id="memberAccountSecurity">

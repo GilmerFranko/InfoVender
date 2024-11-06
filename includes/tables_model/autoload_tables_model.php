@@ -1,4 +1,4 @@
-<?php defined('SYC') || exit;
+<?php defined('VCO') || exit;
 
 /**
  * @Description Este modelo se encarga de cargar las clases correspondientes a las tablas de la db

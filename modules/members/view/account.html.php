@@ -1,8 +1,8 @@
-<?php defined('BETREFERI') || exit;
+<?php defined('VCO') || exit;
 
 /**
  *=======================================================
- *  BetReferi Project
+ *  VCO Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -10,7 +10,7 @@
  * @Description Vista de la configuración del usuario
  *
  *
-*/
+ */
 
 require Core::view('head', 'core');
 ?>
@@ -23,10 +23,10 @@ require Core::view('head', 'core');
 <style type="text/css">
 </style>
 <section id="memberAccount">
-  <br>
-  <div class="row">
-    <form action="<?php echo Core::model('extra', 'core')->generateUrl('members', 'account', 'save');?>" method="post" enctype="multipart/form-data">
-        <div class="card">
+    <br>
+    <div class="row">
+        <form action="<?php echo Core::model('extra', 'core')->generateUrl('members', 'account', 'save'); ?>" method="post" enctype="multipart/form-data">
+            <div class="card">
 
                 <!--<div class="card-content">
                     <p>Aqu&iacute; puedes editar la informaci&oacute;n de tu perfil</p>
@@ -47,7 +47,7 @@ require Core::view('head', 'core');
                 </div>
                 <div class="card-content grey lighten-4">
                     <!-- Tab INFO -->
-                    
+
                     <div id="tinfo">
                         <?php include Core::view('account.profile.area'); ?>
                     </div>
@@ -67,17 +67,18 @@ require Core::view('head', 'core');
                 </div>
                 <!-- BOTON DE GUARDADO -->
                 <div class="fixed-action-btn">
-                  <button type="submit" class="btn-floating btn-large btn-primary darken-4" name="saveAccount" id="btnSaveAccount"><i class="large material-icons">save</i></button>
-              </div>
-          </div>
-      </form>
-  </div>
+                    <button type="submit" class="btn-floating btn-large btn-primary darken-4" name="saveAccount" id="btnSaveAccount"><i class="large material-icons">save</i></button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 <!-- / Body -->
 
 <!-- JS adicional -->
-<script type="text/javascript" src="<?php echo $config['base_url'];?>/static/js/images.js"/></script>
+<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/images.js" />
+</script>
 
 <!-- Footer -->
-<?php require Core::view('footer', 'core');?>
+<?php require Core::view('footer', 'core'); ?>
 <!-- / Footer -->

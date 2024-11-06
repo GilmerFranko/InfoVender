@@ -1,5 +1,5 @@
 <?php
-defined('SYC') || exit;
+defined('VCO') || exit;
 /**
  *=======================================================
  *  VCO Project
