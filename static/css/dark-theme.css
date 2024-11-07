@@ -1,37 +1,34 @@
- /** Colores Tema Oscuro */
+/** Colores Tema Oscuro */
 
- footer
- {
-  background-color:#232323 !important;
+footer {
+  background-color: #232323 !important;
 }
-html
-{
+html {
   color: white;
 }
 
-input
-{
-  color: #9AA0A6 !important;
+input {
+  color: #9aa0a6 !important;
 }
 
 body {
-  background-color: #202123 !important;
-  color: #fff !important;
+  background-color: #000000 !important;
+  color: #fff0 !important;
   nav {
-    background-color: #26A69A;
-    border-bottom: solid 4px var(--primary);
+    margin-top: 30px !important;
+    background-color: #0000;
+    border-bottom: solid 4px white;
   }
   .card {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
   }
   .divider {
     opacity: 0.2;
   }
-  .sidenav
-  {
+  .sidenav {
     background-color: #37474f;
   }
-    /*.sidenav {
+  /*.sidenav {
       background-color: #2D2D31;
       li {
         a {
@@ -50,88 +47,80 @@ body {
         }
       }
     }*/
-    .collection {
-      border: 1px solid rgba(255,255,255,0.2);
-      .collection-item {
-        background-color: rgba(255,255,255,0.2);
-        border-bottom: 1px solid rgba(255,255,255,0.2);;
-      }
-    }
-    input
-    {
-      -webkit-color: #9AA0A6;
-    }
-
-    textarea
-    {
-      color: #9AA0A6;
-    }
-
-    label
-    {
-      color: white;
-    }
-    span
-    {
-      color: #fff !important;
-    }
-    a{
-      color:#ffda00;
-    }
-
-    .swal2-html-container a
-    {
-      color:#039be5;
+  .collection {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .collection-item {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
   }
-
-  .brand-logo
-  {
-    font-size: inherit !important;
+  input {
+    -webkit-color: #9aa0a6;
   }
 
-  nav .brand-logo.center {
-    transform: translateX(-65%);
+  textarea {
+    color: #9aa0a6;
   }
 
-  .dropdown-content.select-dropdown {
-    background-color: #2D2D31;
-  }
-  .toast
-  {
-    background-color: white;
-    color: black;
-  }
-
-  .dropdown-content li
-  {
-    background-color: #2D2D31; 
-  }
-
-  .sidenav-header {
-    height: 64px;
+  label {
     color: white;
-    background: inherit;
-    background: #37474f;
+  }
+  span {
+    color: #fff !important;
+  }
+
+  .swal2-html-container a {
+    color: #039be5;
+  }
+}
+
+.brand-logo {
+  font-size: inherit !important;
+}
+
+nav .brand-logo.center {
+  transform: translateX(-65%);
+}
+
+.dropdown-content.select-dropdown {
+  background-color: #2d2d31;
+}
+.toast {
+  background-color: white;
+  color: black;
+}
+
+.dropdown-content li {
+  background-color: #2d2d31;
+}
+
+.sidenav-header {
+  height: 64px;
+  color: white;
+  background: inherit;
+  background: #37474f;
 }
 
 .sidenav .collapsible-header,
 .sidenav.fixed .collapsible-header {
-    line-height: 48px;
+  line-height: 48px;
 }
 
 .sidenav li {
-    line-height: inherit;
+  line-height: inherit;
 }
-.dropdown-content li>a,
-.dropdown-content li>span,
-.sidenav li>a,
-.sidenav li>a>i.material-icons {
-    color: #fbfbfb;
+.dropdown-content li > a,
+.dropdown-content li > span,
+.sidenav li > a,
+.sidenav li > a > i.material-icons {
+  color: #fbfbfb;
 }
 
-
-  .collection .collection-item, .dropdown-content, .sidenav .collapsible-body, .sidenav.fixed .collapsible-body, .sidenav {
-    background: #37474f;
-  }
-  /* FIN Colores Tema Oscuro */
+.collection .collection-item,
+.dropdown-content,
+.sidenav .collapsible-body,
+.sidenav.fixed .collapsible-body,
+.sidenav {
+  background: #37474f;
+}
+/* FIN Colores Tema Oscuro */

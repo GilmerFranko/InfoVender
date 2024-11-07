@@ -4,7 +4,7 @@
   --red: red;
   --green: #7dd957;
   --primary: #391334;
-  --primary-200: #5C395C;
+  --primary-200: #5c395c;
   --primary-light: #5d3a56;
 
   --darkgray: #202123;
@@ -20,7 +20,6 @@
   --green2: #284d2b;
   --green-200: #8bc34a;
 }
-
 
 .text-red {
   color: var(--red) !important;
@@ -38,7 +37,7 @@
   color: var(--darkgray) !important;
 }
 
-.col.s12>.btn {
+.col.s12 > .btn {
   width: 100%;
 }
 
@@ -62,15 +61,16 @@
   width: 90%;
 }
 
-
 /** GENERAL **/
 
 body {
   margin: 0 auto;
   padding: 0;
-  max-width:95vw;
+  max-width: 95vw;
 }
-
+nav {
+  height: 100% !important;
+}
 .new.carousel.carousel-slider .carousel-item {
   overflow-y: scroll;
 }
@@ -85,24 +85,16 @@ body {
   transition: top 0.3s;
 }
 
-
-footer
-{
+footer {
   font-size: 10px;
 }
 
-.footer-copyright  a
-{
+.footer-copyright a {
   color: white !important;
-  &:hover
-  {
+  &:hover {
     color: white !important;
     text-decoration: underline;
   }
-}
-
-nav .brand-logo.playstore {
-  max-width: 150px;
 }
 
 /*header, main, footer, body {
@@ -124,7 +116,7 @@ nav .brand-logo.playstore {
   box-shadow: none;
 }
 
-.modal-fullscreen>.modal-content {
+.modal-fullscreen > .modal-content {
   height: calc(100% - 56px);
 }
 
@@ -133,7 +125,6 @@ nav .brand-logo.playstore {
   .modal {
     width: 90vw;
   }
-
 }
 
 /** ALERTAS **/
@@ -187,7 +178,7 @@ nav .brand-logo.playstore {
 .notification-badge {
   position: relative;
   padding: 5px 9px;
-  background-color: #FFF;
+  background-color: #fff;
   font-weight: bold;
   color: black;
   bottom: 15px;
@@ -199,13 +190,13 @@ nav .brand-logo.playstore {
   width: 35%;
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width: 640px) {
   #sidenav-notifications.sidenav {
     width: 100%;
   }
 }
 
-#sidenav-notifications.sidenav li>a {
+#sidenav-notifications.sidenav li > a {
   display: inline-block;
   line-height: inherit;
   padding: 5px 0px 25px;
@@ -213,7 +204,6 @@ nav .brand-logo.playstore {
 }
 
 /* ETC */
-
 
 nav .sidenav-trigger {
   margin: 0 5px;
@@ -228,12 +218,10 @@ nav .icons a.active {
   background: rgba(0, 0, 0, 0.1);
 }
 
-
-
 /** PAREJAR MARGEN DEL MENU SUPERIOR **/
 
 // FIX SIDENAV SPACING
-.side-nav li>a {
+.side-nav li > a {
   padding: 0 16px;
 }
 
@@ -246,7 +234,7 @@ nav .icons a.active {
 }
 
 // SIDENAV HEADER
-.side-nav li>a {
+.side-nav li > a {
   padding: 0 16px;
 }
 
@@ -258,13 +246,13 @@ nav .icons a.active {
 }
 
 .sidenav-header {
-  background: url('../images/cover.jpg') no-repeat center center;
+  background: url("../images/cover.jpg") no-repeat center center;
   background-size: cover;
   margin-bottom: 0px;
   padding: 15px 0 0 15px;
 }
 
-.sidenav-header .side-nav li>a {
+.sidenav-header .side-nav li > a {
   padding: 0 16px;
 }
 
@@ -323,8 +311,6 @@ nav .icons a.active {
   opacity: 1;
 }
 
-
-
 @-webkit-keyframes rainbow {
   0% {
     background-color: hsl(0, 100%, 50%);
@@ -371,10 +357,8 @@ nav .icons a.active {
   }
 }
 
-
 /** BOTAR **/
 @-webkit-keyframes throw {
-
   20%,
   50%,
   80% {
@@ -392,7 +376,6 @@ nav .icons a.active {
 
 /** INTERMITENTE **/
 @-webkit-keyframes intermittent {
-
   25%,
   75% {
     opacity: 0;
@@ -432,7 +415,6 @@ nav .icons a.active {
 
 /** BALANCEO **/
 @-webkit-keyframes swinging {
-
   20% {
     -webkit-transform: scale(0.9) rotate(-3deg);
   }
@@ -451,8 +433,6 @@ nav .icons a.active {
   }
 }
 
-
-
 video::-internal-media-controls-download-button {
   display: none;
 }
@@ -466,8 +446,6 @@ video::-webkit-media-controls-panel {
 }
 
 /** CUENTA Y PERFIL **/
-
-
 
 /** LOADER **/
 .preloader-background {
@@ -562,12 +540,10 @@ blockquote {
   justify-content: center;
 }
 
-
 .user-view {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .user-view .avatar-img {
@@ -583,14 +559,11 @@ blockquote {
   box-shadow: 0px 0px 2px #26a69a;
 }
 
-
-input{
+input {
   color: var(--primary) !important;
 }
 
-
-.first-section
-{
+.first-section {
   padding-top: 40px;
   margin: -20px 0 0 0;
   box-shadow: 0 2px 6px #000;
@@ -609,9 +582,8 @@ input{
   border-radius: 50%;
 }
 
-
 .btn-lc {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: unset;
   font-weight: 400;
 }
@@ -620,7 +592,6 @@ input{
 .text-primary {
   color: var(--primary) !important;
 }
-
 
 .image-container {
   width: 100%;
@@ -643,7 +614,6 @@ input{
 .responsive-img {
   border-radius: 4px;
 }
-
 
 .center-align {
   display: flex;
@@ -675,5 +645,3 @@ input{
     font-size: 0.9rem;
   }
 }
-
-
