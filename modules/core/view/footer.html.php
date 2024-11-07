@@ -40,16 +40,7 @@ if ($sSection != 'game' and $sSection != 'bet.area' and $sSection != 'view_messa
 	<footer class="page-footer darken-2 center" style="margin-bottom: 60px;">
 		<div class="footer-copyright">
 			<div class="container">
-				<div class="row center-align">
-					<div class="col s12" style="display: flex;align-items: center;justify-content: center;">
-						<img src="<?php echo $config['images_url'] . '/binance-logo.png' ?>" width="64">
-						<div style="margin: 0 20px">
-							<img src="<?php echo $config['images_url'] . '/bitcoin-logo.png' ?>" width="35">
-							<img src="<?php echo $config['images_url'] . '/tether-logo.png' ?>" width="35">
-							<img src="<?php echo $config['images_url'] . '/ethereum-logo.png' ?>" width="35" alt="ethereum-logo">
-						</div>
-					</div>
-				</div>
+
 				<div class="footer-information row center-align">
 					<div class="col s6">
 						<h5>Sobre Nosotros</h5>
@@ -66,86 +57,10 @@ if ($sSection != 'game' and $sSection != 'bet.area' and $sSection != 'view_messa
 						<a href="">Discord</a><br>
 					</div>
 				</div>
-
-				<div class="row center-align">
-					<div class="col s12 m6">
-						&copy; <?php echo date('Y') . PHP_EOL . $config['script_name']; ?>
-					</div>
-					<div class="col s12 m6">
-						<!-- ESPAÑOL -->
-						<a href="#" onclick="doGTranslate('es|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;">
-							<img src="//gtranslate.net/flags/blank.png" height="24" width="24" alt="Spanish" />
-						</a>
-						<!-- INGLÉS -->
-						<a href="#" onclick="doGTranslate('es|en');return false;" title="English" class="gflag " style="background-size: 0px;">
-							<img src="<?php echo $config['images_url'] . '/eeuu.png' ?>" height="20" width="24" alt="English" />
-						</a>
-						<!-- ITALIANO -->
-						<a href="#" onclick="doGTranslate('en|it');return false;" title="Italian" class="gflag nturl" style="background-position:-600px -100px;">
-							<img src="//gtranslate.net/flags/blank.png" height="24" width="24" alt="Italian" />
-						</a>
-						<!-- PORTUGUÉS -->
-						<a href="#" onclick="doGTranslate('es|pt');return false;" title="Portuguese" class="gflag nturl" style="background-position:-300px -200px;">
-							<img src="//gtranslate.net/flags/blank.png" height="24" width="24" alt="Portuguese" />
-						</a>
-						<!-- FRANCÉS -->
-						<a href="#" onclick="doGTranslate('en|fr');return false;" title="French" class="gflag nturl" style="background-position:-200px -100px;">
-							<img src="//gtranslate.net/flags/blank.png" height="24" width="24" alt="French" />
-						</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</footer>
 <?php } ?>
-<?php if ($session->is_member == true)
-{ ?>
-	<?php if ($sModule != 'admin' and $sModule != 'mod' and $sSection != 'bet.area'): ?>
-		<div id="foot">
-			<!-- Barra de navegacion -->
-			<div id="foot-m1">
-				<a href="<?php echo gLink('bets/consoles.area') ?>"><img src="<?php echo $config['images_url'] . DS . 'home.png' ?>"></a>
-				<div>Home</div>
-			</div>
-			<div id="foot-m2">
-				<a href="<?php echo gLink('bets/completed_bets') ?>"><img src="<?php echo $config['images_url'] . DS . 'game_controller.png' ?>"></a>
-				<div>Apuesta</div>
-			</div>
-			<div id="foot-m3">
-				<a href="<?php echo gLink('global_messages/view_messages') ?>"><img src="<?php echo $config['images_url'] . DS . 'chat-logo.png' ?>"></a>
-				<div>Mensajes</div>
-			</div>
-		</div>
-
-		<div id="whatsapp-btn">
-			<strong>
-				<h7 style="font-weight: 700;">¿Necesitas ayuda?</h7>
-			</strong>
-			<!-- Enlace de WhatsApp -->
-			<a class="btn-floating btn-large green" href="https://wa.me/xxxxxxxxxx/?text=¿Necesitas%20ayuda%3F" target="_blank">
-				<!-- Ícono de WhatsApp -->
-				<i class="large material-icons">chat</i>
-				<!-- Texto del botón -->
-
-			</a>
-
-		</div>
-	<?php endif; ?>
-<?php } ?>
-<?php if ($config['debug_mode'] == 0 and $sSection != 'view_messages'): ?>
-	<div id="google_translate_element2"></div>
-	<script type="text/javascript">
-		function googleTranslateElementInit2() {
-			new google.translate.TranslateElement({
-				pageLanguage: 'es',
-				autoDisplay: true
-			}, 'google_translate_element2');
-		}
-	</script>
-	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
-	<!-- Translate -->
-	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/translate.js"></script>
-<?php endif ?>
 </body>
 
 </html>
