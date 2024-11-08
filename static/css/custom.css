@@ -493,6 +493,7 @@ body {
   min-height: 0 !important;
   height: auto !important;
   position: inherit !important;
+  font-family: monospace;
 }
 
 #goog-gt-tt {
