@@ -36,66 +36,7 @@ require Core::view('head', 'core');
   <br><br>
   <div class="row">
     <? foreach ($courses['data'] as $course): ?>
-      <div id="course<?= $course['id'] ?>" style="display: flex; flex-direction: column; align-items: center;max-width: max-content;">
-        <a class="item-course" href="<?= gLink('courses/view', ['course_id' => $course['id']]) ?>">
-          <div class="course-image">
-            <img src="<?= $config['courses_url'] . '/' . $course['image'] ?>">
-          </div>
-          <div class="card-content">
-            <strong class="course-name"><?= $course['name'] ?></strong>
-          </div>
-        </a>
-      </div>
+      <?php require Core::view('course.c', 'courses'); ?>
     <? endforeach; ?>
   </div>
 </section>
-
-<style>
-  .title {
-    font-size: 60pt;
-    font-weight: bold;
-  }
-
-  .ls-filters {
-    color: #38a37f !important;
-    font-size: 18px;
-    font-weight: 600;
-
-    a {
-      color: #38a37f !important;
-      font-weight: 600;
-    }
-  }
-
-  .item-course {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .course-image {
-    img {
-      width: 340px;
-    }
-  }
-
-  .row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
-    justify-content: space-evenly;
-    width: 85%;
-    margin: auto;
-  }
-
-
-  .item-course .card-content {
-    text-align: center;
-  }
-
-  .course-name {
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
-</style>
