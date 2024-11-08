@@ -493,7 +493,7 @@ body {
   min-height: 0 !important;
   height: auto !important;
   position: inherit !important;
-  font-family: monospace;
+  font-family: "Courier New";
 }
 
 #goog-gt-tt {
@@ -645,4 +645,8 @@ input {
   a {
     font-size: 0.9rem;
   }
+}
+
+.antiqua {
+  font-family: "Book Antiqua", serif;
 }

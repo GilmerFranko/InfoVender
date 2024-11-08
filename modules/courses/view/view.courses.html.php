@@ -19,10 +19,10 @@ require Core::view('head', 'core');
 <?php require Core::view('menu', 'core'); ?>
 <!-- / Header -->
 
-<section class="container" id="viewsCourses" style="padding: 0 20px">
+<section class="" id="viewsCourses" style="padding: 0 0px">
   <div class="center">
-    <div class="title">
-      <h1><strong>Cátalogo</strong></h1>
+    <div class="title antiqua">
+      Cátalogo
     </div>
 
     <div class="ls-filters">
@@ -51,6 +51,11 @@ require Core::view('head', 'core');
 </section>
 
 <style>
+  .title {
+    font-size: 60pt;
+    font-weight: bold;
+  }
+
   .ls-filters {
     color: #38a37f !important;
     font-size: 18px;
@@ -70,16 +75,18 @@ require Core::view('head', 'core');
 
   .course-image {
     img {
-      width: 270px;
+      width: 340px;
     }
   }
 
   .row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 0fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 1.5rem;
     justify-items: center;
     justify-content: space-evenly;
+    width: 85%;
+    margin: auto;
   }
 
 
@@ -88,7 +95,7 @@ require Core::view('head', 'core');
   }
 
   .course-name {
-    font-size: 18px;
+    font-size: 1.6rem;
     font-weight: 600;
   }
 </style>
