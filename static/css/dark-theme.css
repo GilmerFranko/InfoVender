@@ -13,9 +13,9 @@ input {
 
 body {
   background-color: #000000 !important;
-  color: #fff0 !important;
+  color: white !important;
   nav {
-    margin-top: 30px !important;
+    margin: 30px 0 !important;
     background-color: #0000;
     border-bottom: solid 4px white;
   }
@@ -74,6 +74,9 @@ body {
   }
 }
 
+a {
+  color: white !important;
+}
 .brand-logo {
   font-size: inherit !important;
 }
