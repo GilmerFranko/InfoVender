@@ -13,8 +13,8 @@
 <header>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <nav class="black darken-3">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo center">LOGO</a>
+    <div class="nav-wrapper container center">
+      <a href="#" class="text-logo center">LOGO</a>
       <br>
       <!-- Menú principal alineado al centro -->
       <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:30px">
@@ -32,13 +32,14 @@
     padding: 0 1rem;
   }
 
-  .brand-logo {
+  .text-logo {
     font-weight: bold;
-    font-size: 48px !important;
+    font-size: 57pt !important;
+    position: unset !important;
   }
 
   nav ul li a {
-    font-size: 22px !important;
+    font-size: 2rem !important;
   }
 
   /* Colores para los íconos */
