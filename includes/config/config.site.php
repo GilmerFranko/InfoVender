@@ -30,6 +30,10 @@ $config['avatar_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . 
 // Carpeta donde se alojan los archivos con correos
 $config['bulkemails_path']   = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'bulkemails';
 
+// imagenes de los cursos
+$config['courses_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'courses';
+$config['courses_url']   = $config['base_url'] . '/filestore/uploads/courses';
+
 // Foto predefinida para usuarios registrados
 $config['default_male_profile_photo']   = 'default-male-avatar-profile.png';
 $config['default_female_profile_photo'] = 'default-female-avatar-profile.png';
