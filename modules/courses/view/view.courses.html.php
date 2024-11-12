@@ -40,3 +40,6 @@ require Core::view('head', 'core');
     <? endforeach; ?>
   </div>
 </section>
+
+
+<?php require Core::view('footer', 'core'); ?>

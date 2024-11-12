@@ -16,5 +16,3 @@ $page['name'] = 'Cursos';
 $page['code'] = 'viewCourses';
 
 $courses = loadClass('courses/courses')->getAllCourses();
-
-error_log(var_export($courses, true));

@@ -66,4 +66,26 @@ class Courses extends Model
 
     return $data;
   }
+
+
+  /**
+   * Obtiene el curso por su ID
+   * @param int $id
+   * @return array|null
+   */
+  public function getCourseById(int $id): ?array
+  {
+    $query = $this->db->query(
+      'SELECT * 
+       FROM `courses` AS c 
+       WHERE c.`id` = ' . intval($id)
+    );
+
+    if ($query && $query->num_rows > 0)
+    {
+      return $query->fetch_assoc();
+    }
+
+    return null;
+  }
 }
