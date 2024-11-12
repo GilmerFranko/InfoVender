@@ -2,7 +2,7 @@
 
 /**
  *=======================================================
- *  VCO Project
+ *  SYC Project
  *-------------------------------------------------------
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
@@ -726,19 +726,8 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
                 'null0' => ['core', 'home-guest'],
                 'nul2' => ['core', 'home-gduest']
             ],
-            'mi-panel' => [
-                'anuncios' => ['forums', 'my.threads'],
-                'editar' => ['forums', 'edit.thread'],
-                'publicar' => ['forums', 'new.thread'],
-                'favoritos' => ['forums', 'my.favorites']
-            ],
-            'mensajes' =>
-            [
-                'todos' => ['members', 'messages']
-            ],
-            'anuncios' =>
-            [
-                'favoritos' => ['forums', 'my.favorites'],
+            'catalogo' => [
+                'null0' => ['courses', 'view.courses'],
             ]
 
 

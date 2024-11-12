@@ -66,6 +66,8 @@
 	<!-- Añadir tema oscuro a todo menos a la seccion admin -->
 	<?php if ($sModule != 'admin' and $sModule != 'mod') : ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/dark-theme.css?r=<?php echo time(); ?>" />
+	<? else: ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/admin.css" />
 	<?php endif ?>
 
 	<!--<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/sweetalert_dark.css" />-->

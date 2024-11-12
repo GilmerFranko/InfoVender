@@ -37,9 +37,6 @@ $sidenav_fixed = ($sModule == 'admin' or $sModule == 'mod') ? 'sidenav-fixed' : 
   {
     include Core::view('index.sidebar', 'admin'); // ADMINISTRACIÓN
   }
-  if ($session->is_admod)
-  {
-    include Core::view('index.sidebar', 'mod'); // MODERACIÓN
-  } ?>
+  ?>
 
 </ul>
