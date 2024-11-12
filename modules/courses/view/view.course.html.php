@@ -23,20 +23,17 @@ require Core::view('head', 'core');
     </div>
     <!-- Descripción del curso -->
     <div class="item_course_info">
-      <p>Formato: <span class="text-cian">Video y PDF</span></p>
-      <p>Segmentación: <span class="text-cian">Inmobiliarias y +Advitange</p>
-      <p>Inversión diaria sugerida: <span class="text-cian">$12 USD</span></p>
+      <p>Formato:
+        <span class="text-cian">
+          <?= !is_null($course['pdf_link']) && !is_null($course['video_link']) ? 'Video y PDF' : (!is_null($course['pdf_link']) ? 'PDF' : (!is_null($course['video_link']) ? 'Video' : 'No disponible')) ?>
+        </span>
+      </p>
+      <p>Segmentación: <span class="text-cian"><?= $course['segmentation'] ?></p>
+      <p>Inversión diaria sugerida: <span class="text-cian">$<?= $course['suggested_daily_investment'] ?> USD</span></p>
       <hr style="border: 1px solid #fff; margin-top: 40px">
       <h2 style="font-size: 1.5rem; font-weight: bold; text-align: left;">Descripción recomendada:</h2>
       <p class="recomendation-description">
-        DEJA DE PERDER DINERO segmentando mal!<br>
-        SI USAS ESTAS PALABRAS ESTÁS SEGMENTANDO MAL<br>
-        Bienes raíces, inversiones inmobiliarias, casas, departamentos, créditos hipotecarios...<br>
-        Aprende por fin a segmentar tus Campañas Publicitarias de forma correcta para que te lleguen los CLIENTES bien calificados.<br><br>
-        ¿QUÉ INCLUYE?
-        Curso Grupal EXCLUSIVO Agentes Bienes Raíces<br>
-        Escuela virtual con el curso de Facebook Ads + actualizaciones de algoritmos de Facebook<br>
-        Grupo de WhatsApp para seguimiento post curso
+        <?= $course['recommended_description'] ?>
       </p>
     </div>
   </div>
