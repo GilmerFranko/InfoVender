@@ -13,11 +13,11 @@
 <header>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <nav class="black darken-3">
-    <div class="nav-wrapper container center">
+    <div class="nav-wrapper center" style="max-width: 1300px; margin:auto">
       <a href="#" class="text-logo center">LOGO</a>
       <br>
       <!-- Menú principal alineado al centro -->
-      <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:30px">
+      <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
         <li><a href="#catalogo" class="white-text"><i class="material-icons left">attach_money</i>Catalogo$</a></li>
         <li><a href="#entrenamiento" class="white-text"><i class="material-icons left">school</i>Entrenamiento$</a></li>
         <li><a href="#whatsapp" class="white-text"><i class="material-icons left icon-light-green">whatsapp</i>WhatsApp$</a></li>
@@ -40,6 +40,7 @@
 
   nav ul li a {
     font-size: 2rem !important;
+    font-weight: 300;
   }
 
   /* Colores para los íconos */
