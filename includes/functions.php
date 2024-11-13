@@ -289,6 +289,7 @@ function nl2br2($string)
   return $string;
 }
 
+
 /**
  * Reemplaza los saltos de linea <br> por saltos de linea normales \n
  * @param string $string
@@ -298,7 +299,10 @@ function br2nl($string)
 {
   return $nl = preg_replace('#<br\s*/?>#i', "\n", $string);
 }
-
+function bbbr2nl($string)
+{
+  return str_replace('[br]', "\n", $string);
+}
 /**
  * Gets the URL of an image
  *
