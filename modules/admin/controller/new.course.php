@@ -52,7 +52,6 @@ if (isset($_GET['do']))
 
       $course = [
         'name' => cleanString($_POST['name']),
-        'recommended_description' => cleanString($_POST['recommended_description']),
         'segmentation' => cleanString($_POST['segmentation']),
         'suggested_daily_investment' => cleanString($_POST['suggested_daily_investment']),
         'pdf_link' => cleanString($_POST['pdf_link']),
@@ -60,6 +59,18 @@ if (isset($_GET['do']))
         'status' => (isset($_POST['status']) and !is_int($_POST['status'])) ? cleanString($_POST['status']) : 1,
         'created_at' => time()
       ];
+
+      $bbcode = $_POST['recommended_description'] ?? '';
+
+      $parser->parse($bbcode);
+      //
+      $bbcode = cleanString($bbcode);
+      $bbcode = str_replace('\n', '', $bbcode);
+      $bbcode = str_replace('\r', '[br]', $bbcode);
+      $bbcode = str_replace('\r\n', '[br]', $bbcode);
+      $bbcode = str_replace('\n\r', '[br]', $bbcode);
+
+      $course['recommended_description'] = $bbcode;
 
       if ($image_url = loadClass('core/extra')->uploadImage($_FILES['image'], $config['courses_path']))
       {

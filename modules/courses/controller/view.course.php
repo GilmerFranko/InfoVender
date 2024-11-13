@@ -31,6 +31,7 @@ if (!$course = loadClass('courses/courses')->getCourseById($courseId))
 
 if (empty($msg))
 {
+  $parser->parse($course['recommended_description']);
 }
 else
 {

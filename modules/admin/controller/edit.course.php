@@ -49,13 +49,24 @@ if (isset($_GET['edit_course']))
     $courseId = cleanInput($_GET['course_id']);
     $data = [
       'name' => cleanString($_POST['name']),
-      'recommended_description' => cleanString($_POST['recommended_description']),
       'segmentation' => cleanString($_POST['segmentation']),
       'suggested_daily_investment' => cleanString($_POST['suggested_daily_investment']),
       'pdf_link' => cleanString($_POST['pdf_link']),
       'video_link' => cleanString($_POST['video_link']),
       'status' => (isset($_POST['status']) and !is_int($_POST['status'])) ? cleanString($_POST['status']) : 1,
     ];
+
+    $bbcode = $_POST['recommended_description'] ?? '';
+    // Parsear el BBCode
+    $parser->parse($bbcode);
+    //
+    $bbcode = cleanString($bbcode);
+    $bbcode = str_replace('\n', '', $bbcode);
+    $bbcode = str_replace('\r', '[br]', $bbcode);
+    $bbcode = str_replace('\r\n', '[br]', $bbcode);
+    $bbcode = str_replace('\n\r', '[br]', $bbcode);
+
+    $data['recommended_description'] = $bbcode;
 
     if (loadClass('admin/course')->updateCourse($courseId, $data))
     {

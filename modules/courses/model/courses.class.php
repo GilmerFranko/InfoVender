@@ -15,15 +15,15 @@
 class Courses extends Model
 {
   /** Optiene todos los cursos */
-  public function getAllCourses($params = [], $page = 1, $limit = 20)
+  public function getAllCourses($params = [], $limit = 20)
   {
     $where = [];
 
-    /* // Filtrar por fecha (ultimos subidos)
-    if (!empty($params['by_date']))
+    // Filtrar por nombre
+    if (!empty($params['search']))
     {
-      $where[] = 'c.`created_at` = "' .  '"';
-    } */
+      $where[] = 'c.`name` LIKE "%' . $params['search'] . '%"';
+    }
 
     // Ordenar por fecha (ascendente o descendente)
     $order_by = !empty($params['order_by']) && in_array($params['order_by'], ['asc', 'desc'])
@@ -31,28 +31,31 @@ class Courses extends Model
       : 'desc';
 
     // Construir la cláusula WHERE
-    #$where_clause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : 'WHERE `status` = 1';
+    $where_clause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
 
     // Consulta para obtener el total de resultados (sin límite de paginación)
     $total_query = $this->db->query(
       'SELECT COUNT(*) 
-        FROM `courses` AS c'
+        FROM `courses` AS c
+        ' . $where_clause
     );
 
     list($data['total']) = $total_query->fetch_row();
 
     // Paginador
-    $data['pages'] = Core::model('paginator', 'core')->pageIndex(array('forums', 'view.searches', null, $params), $data['total'], $limit);
+    $data['pages'] = Core::model('paginator', 'core')->pageIndex(array('courses', 'view.courses', null, $params), $data['total'], $limit);
 
     // Construir la consulta SQL final con paginación
     $query = $this->db->query(
       'SELECT * 
         FROM `courses` AS c
+        ' . $where_clause . '
         ORDER BY 
-            c.`created_at` ' . $order_by . ' 
+            c.`created_at` ' . $order_by . '
         LIMIT ' . $data['pages']['limit']
     );
 
+    // Contar el total de resultados
     $data['rows'] = $query->num_rows;
 
     // Obtener los resultados de la consulta

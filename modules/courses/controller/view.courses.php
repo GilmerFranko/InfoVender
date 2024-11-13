@@ -15,4 +15,16 @@
 $page['name'] = 'Cursos';
 $page['code'] = 'viewCourses';
 
-$courses = loadClass('courses/courses')->getAllCourses();
+$params = [];
+
+if (isset($_GET['search']))
+{
+  $params['search'] = escape($_GET['search']);
+}
+
+if (isset($_GET['order_by']))
+{
+  $params['order_by'] = escape($_GET['order_by']);
+}
+
+$courses = loadClass('courses/courses')->getAllCourses($params);

@@ -32,9 +32,9 @@ require Core::view('head', 'core');
       <p>Inversión diaria sugerida: <span class="text-cian">$<?= $course['suggested_daily_investment'] ?> USD</span></p>
       <hr style="border: 1px solid #fff; margin-top: 40px">
       <h2 style="font-size: 1.5rem; font-weight: bold; text-align: left;">Descripción recomendada:</h2>
-      <p class="recomendation-description">
-        <?= $course['recommended_description'] ?>
-      </p>
+      <div class="recomendation-description">
+        <?= tobr($parser->getAsHTML()) ?>
+      </div>
     </div>
   </div>
 

@@ -17,7 +17,9 @@ require Core::view('head', 'core');
 $useExampleValues = true; // Cambiar a true para usar valores de ejemplo
 
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
 <section id="adminNewCourse">
   <div class="card-panel green lighten-4 green-text text-darken-4 flow-text center-align"><?= $page['name'] ?></div>
   <div class="sectionCourses container">
@@ -31,7 +33,7 @@ $useExampleValues = true; // Cambiar a true para usar valores de ejemplo
 
         <div class="input-field">
           <label for="recommended_description">Descripción recomendada</label>
-          <textarea name="recommended_description" id="recommended_description" class="materialize-textarea" required><?php echo $useExampleValues ? 'Descripción de ejemplo para el curso.' : Core::model('extra', 'core')->getInputValue('recommended_description', 'post'); ?></textarea>
+          <textarea name="recommended_description" id="recommended_description" class="materialize-textarea wysiwyg-editor" required><?php echo $useExampleValues ? 'Descripción de ejemplo para el curso.' : Core::model('extra', 'core')->getInputValue('recommended_description', 'post'); ?></textarea>
         </div>
 
         <div class="input-field">
@@ -71,5 +73,16 @@ $useExampleValues = true; // Cambiar a true para usar valores de ejemplo
 <!-- / Footer -->
 
 <!-- JS adicional -->
-<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js" />
+<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js"></script>
+<script>
+  // Inicializa SCEditor en el textarea
+  const $textarea = $('.wysiwyg-editor');
+  sceditor.create($textarea[0], {
+    format: 'bbcode',
+    style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
+    locale: 'es', // Ajusta el idioma si es necesario
+    toolbar: 'bold,italic,underline|bulletlist,orderedlist|link,unlink|source',
+    width: '100%',
+    height: '200px',
+  });
 </script>

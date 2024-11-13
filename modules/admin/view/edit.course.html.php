@@ -15,7 +15,9 @@
 require Core::view('head', 'core');
 
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
 <section id="adminNewCourse">
   <div class="card-panel green lighten-4 green-text text-darken-4 flow-text center-align"><?= $page['name'] ?></div>
   <div class="sectionCourses container">
@@ -29,7 +31,7 @@ require Core::view('head', 'core');
 
         <div class="input-field">
           <label for="recommended_description">Descripción recomendada</label>
-          <textarea name="recommended_description" id="recommended_description" class="materialize-textarea" required><?= $course['recommended_description'] ?></textarea>
+          <textarea name="recommended_description" id="recommended_description" class="materialize-textarea wysiwyg-editor" required><?= bbbr2nl($course['recommended_description']) ?></textarea>
         </div>
 
         <div class="input-field">
@@ -70,4 +72,16 @@ require Core::view('head', 'core');
 
 <!-- JS adicional -->
 <script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js" />
+</script>
+<script>
+  // Inicializa SCEditor en el textarea
+  const $textarea = $('.wysiwyg-editor');
+  sceditor.create($textarea[0], {
+    format: 'bbcode',
+    style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
+    locale: 'es', // Ajusta el idioma si es necesario
+    toolbar: 'bold,italic,underline|bulletlist,orderedlist|link,unlink|source',
+    width: '100%',
+    height: '200px',
+  });
 </script>
