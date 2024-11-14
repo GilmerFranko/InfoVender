@@ -34,6 +34,10 @@ $config['bulkemails_path']   = $config['base_path'] . 'filestore' . DS . 'upload
 $config['courses_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'courses';
 $config['courses_url']   = $config['base_url'] . '/filestore/uploads/courses';
 
+// Imagenes de las fases
+$config['phases_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'phases';
+$config['phases_url']   = $config['base_url'] . '/filestore/uploads/phases';
+
 // Foto predefinida para usuarios registrados
 $config['default_male_profile_photo']   = 'default-male-avatar-profile.png';
 $config['default_female_profile_photo'] = 'default-female-avatar-profile.png';

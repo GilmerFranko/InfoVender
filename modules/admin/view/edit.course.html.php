@@ -80,7 +80,6 @@ require Core::view('head', 'core');
     format: 'bbcode',
     style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
     locale: 'es', // Ajusta el idioma si es necesario
-    toolbar: 'bold,italic,underline|bulletlist,orderedlist|link,unlink|source',
     width: '100%',
     height: '200px',
   });
