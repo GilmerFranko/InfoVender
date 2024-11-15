@@ -36,11 +36,14 @@
 <div class="buttons-options">
   <!-- Boton descargar -->
   <div class="button-option">
-    <a href="<?= $config['courses_url'] . '/' . $course['pdf'] ?>" target="_blank">Descargar PDF</a>
+    <a href="<?= $course['pdf_link'] ?>" target="_blank">Descargar PDF</a>
   </div>
   <!-- Boton Drive Videos-->
   <div class="button-option">
-    <a href="<?= $config['courses_url'] . '/' . $course['video'] ?>" target="_blank">Ver Video</a>
+    <a href="<?= $course['video_link'] ?>" target="_blank">Ver Video</a>
+  </div>
+  <div class="button-option">
+    <a href="<?= gLink('courses/view.promocontent', ['course_id' => $course['id']]) ?>">Contenido</a>
   </div>
 </div>
 <!--</section>-->

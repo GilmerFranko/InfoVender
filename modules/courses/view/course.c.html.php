@@ -16,7 +16,7 @@
 <div id="course<?= $course['id'] ?>" style="display: flex; flex-direction: column; align-items: center;max-width: max-content;" onclick="location.href='<?= gLink('courses/view.course', ['course_id' => $course['id']]) ?>'">
 
   <div class="course-image">
-    <div class="card-action" style="position: relative;top: 35px;left: 0px;z-index: 1;text-align: right;">
+    <div class="card-action" style="position: relative;top: 0px;left: 50px;z-index: 1;text-align: right;">
       <a class="btn btn-small waves-effect waves-light blue" href="<?= gLink('admin/edit.course', ['course_id' => $course['id']]) ?>">
         <i class="material-icons">edit</i>
       </a>
