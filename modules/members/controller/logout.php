@@ -28,7 +28,7 @@ if (isset($_GET['token']))
 		Core::model('access', 'members')->logout($session->memberData['member_id']);
 
 		// REDIRIGIR
-		Core::model('extra', 'core')->generateUrl('core', 'home-guest', null, null, true);
+		Core::model('extra', 'core')->generateUrl('members', 'login', null, null, true);
 	}
 }
 else
@@ -39,5 +39,5 @@ else
 	$extra->setToast($message);
 
 	// REDIRIGIR
-	Core::model('extra', 'core')->generateUrl('members', 'profile', null, array('user' => $session->memberData['member_id'], 'save' => 'success'), true);
+	redirect('courses/view.courses');
 }

@@ -62,7 +62,10 @@ $section['mod']['reports'] = array('level' => 3, 'message' => 'Puedes denunciar,
 
 
 // Monedero
-$section['wallet'] = array('level' => 2, 'message' => 'No tienes permisos para acceder', 'url' => '/');
+//$section['wallet'] = array('level' => 2, 'message' => 'No tienes permisos para acceder', 'url' => '/');
+
+// Cursos
+$section['courses'] = array('level' => 2, 'message' => 'No tienes permisos para acceder', 'url' => '/');
 
 
 /* Se realizan las comprobaciones */

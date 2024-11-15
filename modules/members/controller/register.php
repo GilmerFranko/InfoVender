@@ -15,7 +15,8 @@
 $page['name'] = 'Registro';
 $page['code'] = 'membersRegister';
 //
-if (isset($_POST['register']))
+//if (isset($_POST['register']))
+if (false) // Desactivado
 {
     if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email']))
     {

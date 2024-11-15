@@ -26,7 +26,7 @@ require Core::view('head', 'core');
   }
 </style>
 <!-- Body -->
-<section style="margin-top: 50px;">
+<section style="display: flex; align-items: center; justify-content: center; height: 100vh;">
   <div class="row" style="max-width: 500px">
     <!-- Logo -->
     <div class="col s12">
@@ -97,12 +97,12 @@ require Core::view('head', 'core');
           </div>
         </form>
         <!-- BOTONES INFERIORES -->
-        <div class="row col s12">
+        <!-- <div class="row col s12">
           <a class="modal-trigger waves-effect waves-light btn w100 grey darken-3" href="#modalRecover"><i class="material-icons right">fingerprint</i>Olvide mi contrase&ntilde;a / Email</a>
         </div>
         <div class="row col s12">
           <a href="<?php echo Core::model('extra', 'core')->generateUrl('members', 'register'); ?>" class="btn btn-secondary btn-large w100 waves-effect waves-light"><i class="material-icons right">group_add</i>Crear cuenta</a>
-        </div>
+        </div> -->
       </div>
     </form>
   </div>

@@ -18,7 +18,7 @@
         <li style="display: inline-block; margin-right: 15px;"><a href="<?php echo $extra->generateUrl('admin', 'dashboard') ?>" class="white-text">Dashboard</a></li>
         <li style="display: inline-block; margin-right: 15px;"><a href="<?php echo $extra->generateUrl('admin', 'configuration') ?>" class="white-text">Configuración</a></li>
         <li style="display: inline-block; margin-right: 15px;"><a href="<?php echo $extra->generateUrl('admin', 'courses') ?>" class="white-text">Cursos</a></li>
-        <li style="display: inline-block;"><a href="<?php echo $extra->generateUrl('members', 'logout') ?>" class="white-text">Salir</a></li>
+        <li style="display: inline-block;"><a href="<?= gLink('members/logout', ['token' => $session->token]) ?>" class="white-text">Salir</a></li>
       </ul>
     </div>
   <?php endif ?>
@@ -26,12 +26,18 @@
     <div class="nav-wrapper center" style="max-width: 1300px; margin:auto">
       <a href="#" class="text-logo center">LOGO</a>
       <br>
-      <!-- Menú principal alineado al centro -->
-      <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
-        <li><a href="<?= gLink('catalogo') ?>" class="white-text"><i class="material-icons left">attach_money</i>Catalogo$</a></li>
-        <li><a href="<?= gLink('entrenamiento') ?>" class="white-text"><i class="material-icons left">school</i>Entrenamiento$</a></li>
-        <li><a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola" class="white-text" target="_blank"><i class="material-icons left icon-light-green">whatsapp</i>WhatsApp$</a></li>
-      </ul>
+      <?php if ($session->is_member): ?>
+        <!-- Menú principal alineado al centro -->
+        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
+          <li><a href="<?= gLink('catalogo') ?>" class="white-text"><i class="material-icons left">attach_money</i>Catalogo$</a></li>
+          <li><a href="<?= gLink('entrenamiento') ?>" class="white-text"><i class="material-icons left">school</i>Entrenamiento$</a></li>
+          <li><a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola" class="white-text" target="_blank"><i class="material-icons left icon-light-green">whatsapp</i>WhatsApp$</a></li>
+        </ul>
+      <?php else: ?>
+        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
+          <li><a href="<?= gLink('login') ?>" class="white-text"><i class="material-icons left">lock_open</i>Iniciar Sesión</a></li>
+        </ul>
+      <?php endif ?>
     </div>
   </nav>
 </header>
