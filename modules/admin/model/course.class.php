@@ -102,7 +102,7 @@ class Course extends Model
    * @param array $contact
    * @return bool
    */
-  public function newCourse(array $data): bool
+  public function newCourse(array $data): int
   {
     // Generar el slug a partir del título
     $slug = loadClass('core/extra')::generateSlug($data['name']);
@@ -119,7 +119,7 @@ class Course extends Model
     {
       return $r;
     }
-    return false;
+    return 0;
   }
 
   /**
