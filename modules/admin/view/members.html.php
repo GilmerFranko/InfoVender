@@ -28,7 +28,7 @@ require Core::view('head', 'core');
 <!-- FIN DE CARGA EDITOR DE USUARIO -->
 <section id="adminMembers">
     <!-- BUSCADOR -->
-    <nav class="teal darken-1">
+    <div class="teal darken-1">
         <div class="nav-wrapper">
             <form class="" action="<?php echo Core::model('extra', 'core')->generateUrl('admin', 'members'); ?>" method="post">
                 <div class="input-field">
@@ -38,10 +38,13 @@ require Core::view('head', 'core');
                 </div>
             </form>
         </div>
-    </nav>
+    </div>
     <!-- ./BUSCADOR -->
 
-    <blockquote>Usuarios online: <?php echo $online; ?></blockquote>
+    <div class="row">
+        <blockquote class="">Usuarios online: <?php echo $online; ?></blockquote>
+        <a class="btn" href="<?= gLink('admin/new.member') ?>">A&ntilde;adir usuario</a>
+    </div>
     <div class="sectionMembers">
         <?php include Core::view('members.area'); ?>
     </div>

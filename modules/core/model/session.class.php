@@ -63,7 +63,7 @@ class Session extends Model
         else*/
     if (isset($_COOKIE[$this->config['cookie_name']]))
     {
-      $query = $this->db->query('SELECT m.*, g.* FROM `members` AS m LEFT JOIN `members_groups` AS g ON m.`group_id` = g.`g_id` WHERE m.`session` = \'' . $this->db->real_escape_string($_COOKIE[$this->config['cookie_name']]) . '\' && m.`banned` = 0 LIMIT 1');
+      $query = $this->db->query('SELECT m.*, g.* FROM `members` AS m LEFT JOIN `members_groups` AS g ON m.`group_id` = g.`g_id` WHERE m.`session` = \'' . $this->db->real_escape_string($_COOKIE[$this->config['cookie_name']]) . '\' AND m.`banned` = 0 AND (m.`pp_expiration` > UNIX_TIMESTAMP() OR (m.`group_id` = 2 OR m.`group_id` = 1)) LIMIT 1');
       //
       if ($query == true && $query->num_rows > 0)
       {

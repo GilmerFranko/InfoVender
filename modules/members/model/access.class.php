@@ -75,13 +75,17 @@ class Access extends Model
      * @param string $email
      * @return integer/boolean
      */
-    function signIn($member = array())
+    function signIn($member = array(), $reg_validate = true)
     {
-        // RANGO PREEDETERMINADO
-        $member_group = $this->config['reg_validate'] == '1' ? '0' : $this->config['reg_group'];
+        $member_group = $this->config['reg_group'];
+        if ($reg_validate)
+        {
+            // RANGO PREEDETERMINADO
+            $member_group = $this->config['reg_validate'] == '1' ? '0' : $this->config['reg_group'];
+        }
 
         // REGISTRA EN LA BASE DE DATOS
-        $query = $this->db->query('INSERT INTO `members` SET `name` = \'' . escape($member['name']) . '\',`password` = \'' . escape($member['password']) . '\',`group_id` = \'' . $member_group . '\',`email` = \'' . escape($member['email']) . '\',`birthday` = \'' . escape($member['birthday']) . '\',`ip_address` = \'' . escape(Core::model('extra', 'core')->getIp()) . '\',`pp_full_name` = \'' . escape($member['name']) . '\',`pp_main_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_thumb_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_gender` = \'' . $member['gender'] . '\',`pp_joined` = \'' . time() . '\'');
+        $query = $this->db->query('INSERT INTO `members` SET `name` = \'' . escape($member['name']) . '\',`password` = \'' . escape($member['password']) . '\',`group_id` = \'' . $member_group . '\',`email` = \'' . escape($member['email']) . '\',`birthday` = \'' . escape($member['birthday']) . '\',`ip_address` = \'' . escape(Core::model('extra', 'core')->getIp()) . '\',`pp_full_name` = \'' . escape($member['name']) . '\',`pp_main_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_thumb_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_gender` = \'' . $member['gender'] . '\',`pp_joined` = \'' . time() . '\', `pp_expiration` = \'' . $member['pp_expiration'] . '\'');
 
         //
         if ($query == true)

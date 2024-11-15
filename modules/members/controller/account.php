@@ -1,5 +1,7 @@
 <?php defined('VCO') || exit;
-
+// Redirigir a catalogo
+Core::model('extra', 'core')->redirectTo($config['base_url']);
+exit;
 /**
  *=======================================================
  *  VCO Project
