@@ -174,4 +174,14 @@ nav .brand-logo.center {
   font-size: 1.6rem;
   font-weight: 600;
 }
+
+.course-image {
+  display: flex;
+  justify-content: center;
+  video,
+  img {
+    width: 340px;
+    max-height: 400px;
+  }
+}
 /* FIN Estilos cursos */

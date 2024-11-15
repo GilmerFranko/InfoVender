@@ -14,12 +14,12 @@ require Core::view('head', 'core');
 <!-- / Header -->
 
 <section style="padding: 2rem; color: #fff; background-color: #000;">
-  <p class="antiqua center" style="font-size: 60pt; margin:0;">Facebook Ads Real Estate</p>
+  <p class="antiqua center" style="font-size: 60pt; margin:0;"><?= $course['name'] ?></p>
 
   <div style="display: flex;justify-content: center;align-items: flex-start;">
     <!-- Imagen del curso -->
     <div style="">
-      <img class="course_img" src="<?= $config['courses_url'] . '/' . $course['image'] ?>" alt="Curso Facebook Ads Real Estate">
+      <img class="course_img" src="<?= $config['courses_url'] . '/' . $course['image'] ?>" alt="Curso <?= $course['name'] ?>">
     </div>
     <!-- Descripción del curso -->
     <div class="item_course_info">

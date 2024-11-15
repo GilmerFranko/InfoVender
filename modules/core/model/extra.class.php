@@ -778,6 +778,43 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
     }
 
     /**
+     * Sube un archivo desde el PC
+     *
+     * @param array    $image
+     * @param string   $path   la ruta donde se va a subir la imagen
+     * @return string con el nombre de la imagen subida, o false si no se pudo subir
+     */
+    function uploadFile($image = array(), $path = '')
+    {
+        // Verificar si el tipo de archivo es JPEG o PNG o MP4 y no pese mas de 1GB
+        if (in_array($image['type'], array('image/jpeg', 'image/png', 'video/mp4')) && $image['size'] <= 1073741824)
+        {
+            // Crear el directorio si no existe
+            if (!file_exists($path))
+            {
+                mkdir($path, 0777, true);
+            }
+
+            // Mover la imagen original al directorio especificado con el nombre del juego
+            $image_name = generateUUID() . '.' . pathinfo($image['name'], PATHINFO_EXTENSION);
+
+            if (move_uploaded_file($image['tmp_name'], $path . DS . $image_name))
+            {
+                return $image_name;
+            }
+            else
+            {
+                setToast([['El archivo debe ser del siguiente formato: jpg, png o mp4']]);
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
      * Elimina una imagen
      *
      * @param string   $image_name

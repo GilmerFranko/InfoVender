@@ -57,6 +57,11 @@ $useExampleValues = true; // Cambiar a true para usar valores de ejemplo
         </div>
 
         <div class="">
+          <input id="files" type="file" name="files[]" multiple required accept="image/jpg, image/jpeg, image/png, video/mp4">
+          <label for="files">Archivos promocionales</label>
+        </div>
+        <br>
+        <div class="">
           <input id="image" type="file" name="image" required>
           <label for="image">Imagen</label>
         </div>

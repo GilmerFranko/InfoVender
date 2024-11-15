@@ -76,10 +76,21 @@ if (isset($_GET['do']))
       {
         $course['image'] = $image_url;
 
-        $result = loadClass('admin/course')->newCourse($course);
+        $r_id = loadClass('admin/course')->newCourse($course);
 
-        if ($result)
+        if ($r_id)
         {
+          // Sube las imagenes al servidor
+          $files = loadClass('courses/courses')->uploadFiles();
+
+          foreach ($files[1] as $file_url)
+          {
+            // Sube las imagenes a la base de datos
+            if (!loadClass('courses/courses')->newCourseFile($r_id, $file_url))
+            {
+              Core::model('extra', 'core')->deleteImage($file_url, $config['courses_path']);
+            }
+          }
           $msg[] = 'El curso se ha creado correctamente';
         }
         else
