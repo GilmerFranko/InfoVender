@@ -61,7 +61,7 @@ Core::model('extra', 'core')->checkLoad();
 /* Se define el módulo y la sección a cargar
 * Si es visitante, muestra home-guest, si no, muestra home-member
 */
-$sModule = (isset($_GET['app']) and $_GET['app'] != 'index.php') ? strtolower($_GET['app']) : ($session->is_member ? 'catalogo' : 'members');
+$sModule = (isset($_GET['app']) and $_GET['app'] != 'index.php') ? strtolower($_GET['app']) : ($session->is_member ? 'catalogo' : 'login');
 $sSection = (isset($_GET['section'])) ? strtolower($_GET['section']) : ($session->is_member ? 'null0' : 'login');
 
 // debug
