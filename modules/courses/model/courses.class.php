@@ -190,4 +190,20 @@ class Courses extends Model
 
     return [true, $image_urls];
   }
+
+  public function getAllPhases()
+  {
+    $query = $this->db->query('SELECT `id`, `title`, `image` FROM `phases`');
+    if ($query && $query->num_rows > 0)
+    {
+      while ($row = $query->fetch_assoc())
+      {
+        $data[] = $row;
+      }
+
+      return $data;
+    }
+
+    return false;
+  }
 }

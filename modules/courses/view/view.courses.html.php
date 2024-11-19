@@ -48,7 +48,7 @@ require Core::view('head', 'core');
 
   <br><br>
   <? if ($courses['rows'] > 0): ?>
-    <div class="row">
+    <div class="item-row">
       <? foreach ($courses['data'] as $course): ?>
         <?php require Core::view('course.c', 'courses'); ?>
       <? endforeach; ?>
