@@ -729,9 +729,11 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
             'catalogo' => [
                 'null0' => ['courses', 'view.courses'],
                 'buscar' => ['courses', 'view.courses']
+            ],
+            'entrenamiento' =>
+            [
+                'null0' => ['courses', 'view.phases'],
             ]
-
-
         ];
 
         // Verificar si el módulo y la sección tienen un mapeo definido.
