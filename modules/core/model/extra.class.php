@@ -733,6 +733,10 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
             'entrenamiento' =>
             [
                 'null0' => ['courses', 'view.phases'],
+            ],
+            'contactanos' =>
+            [
+                'null0' => ['site', 'contact2'],
             ]
         ];
 
