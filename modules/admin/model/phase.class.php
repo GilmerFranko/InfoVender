@@ -53,10 +53,34 @@ class Phase extends Model
    *
    * @param array $params Filtros para la consulta.
    * @param int $limit El n mero de filas a obtener.
-   * @return array|null
+   * @return array|bool
    */
-  public function getAllPhases($params = [], $limit = 20)
+  public function getAllPhases()
   {
-    return loadClass('core/db')->getColumns('phases', ['title', 'content', 'image'], $params, $limit);
+    $query = $this->db->query('SELECT `id`, `title`, `image` FROM `phases`');
+    if ($query && $query->num_rows > 0)
+    {
+      $data['rows'] = $query->num_rows;
+      while ($row = $query->fetch_assoc())
+      {
+        $data['data'][] = $row;
+      }
+
+      return $data;
+    }
+
+    return false;
+  }
+
+
+  /**
+   * Elimina una fase.
+   *
+   * @param int $phase_id El identificador de la fase.
+   * @return bool
+   */
+  public function deletePhase($phase_id)
+  {
+    return loadClass('core/db')->deleteRow('phases', $phase_id);
   }
 }
