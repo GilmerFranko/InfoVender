@@ -20,6 +20,11 @@ body {
     border-bottom: solid 4px white;
   }
 
+  .icon-menu-item {
+    width: 48px;
+    margin-right: 5px;
+  }
+
   @media only screen and (max-width: 994px) {
     nav ul li a {
       font-size: 1.5rem !important;
@@ -36,10 +41,16 @@ body {
     nav ul li a .material-icons {
       display: none;
     }
+    .icon-menu-item {
+      width: 32px;
+    }
   }
   @media only screen and (max-width: 450px) {
     nav ul {
       flex-direction: column !important;
+    }
+    .icon-menu-item {
+      width: 22px;
     }
   }
   .card {
@@ -252,6 +263,7 @@ nav .brand-logo.center {
   padding: 40px 8px;
   font-size: 50px;
 }
+
 @media only screen and (max-width: 768px) {
   .btn-download {
     width: 90%;
