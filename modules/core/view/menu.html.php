@@ -29,15 +29,15 @@
       <?php if ($session->is_member): ?>
         <!-- Menú principal alineado al centro -->
         <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
-          <li><a href="<?= gLink('catalogo') ?>" class="white-text"><i class="material-icons left">attach_money</i>Catalogo$</a></li>
-          <li><a href="<?= gLink('entrenamiento') ?>" class="white-text"><i class="material-icons left">school</i>Entrenamiento$</a></li>
-          <li><a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola" class="white-text" target="_blank"><i class="material-icons left icon-light-green">whatsapp</i>WhatsApp$</a></li>
+          <li><a href="<?= gLink('catalogo') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/dollar.png' ?>" class="icon-menu-item" class="white-text" />Catalogo$</a></li>
+          <li><a href="<?= gLink('entrenamiento') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/birrete.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Entrenamiento$</a></li>
+          <li><a href="<?= gLink('contactanos') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/whatsapp.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />WhatsApp$</a></li>
         </ul>
         <!-- Menú para dispositivos móviles -->
         <ul class="center-align hide-on-large-only" style="display: flex; align-items: center; gap: 1rem; margin-top:55px; margin-bottom: 35px;">
-          <li><a href="<?= gLink('catalogo') ?>" class="white-text"><i class="material-icons left">attach_money</i>Catalogo$</a></li>
-          <li><a href="<?= gLink('entrenamiento') ?>" class="white-text"><i class="material-icons left">school</i>Entrenamiento$</a></li>
-          <li><a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola" class="white-text" target="_blank"><i class="material-icons left icon-light-green">whatsapp</i>WhatsApp$</a></li>
+          <li><a href="<?= gLink('catalogo') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/dollar.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Catalogo$</a></li>
+          <li><a href="<?= gLink('entrenamiento') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/birrete.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Entrenamiento$</a></li>
+          <li><a href="<?= gLink('contactanos') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/whatsapp.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />WhatsApp$</a></li>
         </ul>
       <?php else: ?>
         <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
