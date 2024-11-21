@@ -83,57 +83,42 @@
               Contactos
             </a>
           </li>
-          <li <?php if ($sSection == 't_with_spams')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue <?php echo ($totalTSZ > 0) ? 'new-alert' : '' ?>" href="<?= gLink('admin/t_with_spams'); ?>">
-              <i class="material-icons "><?php echo ($totalTSZ > 0) ? 'new_releases' : 'do_not_disturb_off' ?></i>
-              <?php if ($totalTSZ > 0): ?>
-                <span class="new badge green"><?= $totalTSZ ?></span>
-              <?php endif; ?>
-              Spam
-            </a>
-          </li>
 
-          <li <?php if ($sSection == 'contacts.views')
+          <li><a href="#" class="waves-effect waves-blue grey-text">Cursos</a></li>
+
+          <li <?php if ($sSection == 'courses')
               {
                 echo ' class="active"';
               } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'contacts.views'); ?>">
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'courses'); ?>">
               <i class="material-icons">receipt</i>
-              Contáctos
+              Cursos
             </a>
           </li>
 
-          <li <?php if ($sSection == 'views.locations')
+
+          <li <?php if ($sSection == 'phases')
               {
                 echo ' class="active"';
               } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'views.locations'); ?>">
-              <i class="material-icons">location_on</i>
-              Ubicaciones
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'phases'); ?>">
+              <i class="material-icons">chrome_reader_mode
+              </i>
+              Fases
             </a>
           </li>
-          <li <?php if ($sSection == 'reports')
+
+          <li <?php if ($sSection == 'top20')
               {
                 echo ' class="active"';
               } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'reports'); ?>">
-              <i class="material-icons">warning</i>
-              Reportes
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'top20'); ?>">
+              <i class="material-icons">format_list_numbered
+              </i>
+              Top 20
             </a>
           </li>
-          <li><a href="#" class="waves-effect waves-blue grey-text">Transacciones</a></li>
-          <li <?php if ($sSection == 'transactions')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'transactions'); ?>">
-              <i class="material-icons">wallet</i>
-              Movimientos
-            </a>
-          </li>
+
         </ul>
       </div>
     </li>
