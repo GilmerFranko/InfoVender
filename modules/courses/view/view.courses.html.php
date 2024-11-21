@@ -30,7 +30,7 @@ require Core::view('head', 'core');
     <div class="ls-filters">
       Filtros:
       <a href=""> 🔥Hot🔥 </a>
-      <a href=""> ( top 20 ) </a> |
+      <a href="<?= gLink('catalogo/top20') ?>"> ( top 20 ) </a> |
       <a href="<?= gLink('catalogo/buscar', ['search' => $params['search'] ?? '', 'order_by' => 'asc']) ?>"> Ultimos Publicados </a> |
       <a href="#" id="btn-search"> Buscar </a>
     </div>
@@ -48,11 +48,14 @@ require Core::view('head', 'core');
 
   <br><br>
   <? if ($courses['rows'] > 0): ?>
+    <?php // $courses['pages']['paginator'] 
+    ?>
     <div class="item-row">
       <? foreach ($courses['data'] as $course): ?>
         <?php require Core::view('course.c', 'courses'); ?>
       <? endforeach; ?>
     </div>
+    <?= $courses['pages']['paginator'] ?>
   <? else: ?>
     <span class="flow-text center-align">No se han encontrado resultados</span>
   <? endif; ?>
