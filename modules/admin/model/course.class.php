@@ -217,4 +217,242 @@ class Course extends Model
       return ['status' => false, 'msg' => 'Error al eliminar el curso de la base de datos'];
     }
   }
+
+  /**
+   * Obtiene los cursos del Top 20
+   * @return array
+   */
+  public function getTopCourses(): array
+  {
+    $query = $this->db->query(
+      'SELECT tc.course_id, c.name, c.image, tc.*
+             FROM `top_courses` AS tc
+             JOIN `courses` AS c ON tc.course_id = c.id
+             ORDER BY tc.position ASC'
+    );
+
+    $data = [];
+    if ($query && $query->num_rows > 0)
+    {
+      while ($row = $query->fetch_assoc())
+      {
+        $data[] = $row;
+      }
+    }
+
+    return $data;
+  }
+
+  /**
+   * Cuenta los cursos en el Top 20
+   * @return int
+   */
+  public function countTopCourses(): int
+  {
+    $query = $this->db->query('SELECT COUNT(*) AS total FROM `top_courses`');
+    list($total) = $query->fetch_row();
+    return intval($total);
+  }
+
+  /**
+   * Verifica si un curso ya está en el Top 20
+   * @param int $courseId
+   * @return bool
+   */
+  public function isInTop(int $courseId): bool
+  {
+    $query = $this->db->query(
+      'SELECT 1 
+             FROM `top_courses` 
+             WHERE `course_id` = ' . intval($courseId)
+    );
+
+    return $query && $query->num_rows > 0;
+  }
+
+  /**
+   * Agrega un curso al Top 20
+   * @param int $courseId
+   * @return bool
+   */
+  public function addToTop(int $courseId): bool
+  {
+    if ($this->countTopCourses() >= 20)
+    {
+      error_log('El Top 20 ya está completo.');
+      return false;
+    }
+
+    // Determinar la nueva posición
+    $position = $this->countTopCourses() + 1;
+
+    $query = $this->db->query(
+      'INSERT INTO `top_courses` (`course_id`, `position`) 
+             VALUES (' . intval($courseId) . ', ' . intval($position) . ')'
+    );
+
+    return $query !== false;
+  }
+
+  /**
+   * Elimina un curso del Top 20
+   * @param int $courseId
+   * @return bool
+   */
+  public function removeFromTop(int $courseId): bool
+  {
+    $query = $this->db->query(
+      'DELETE FROM `top_courses` 
+             WHERE `course_id` = ' . intval($courseId)
+    );
+
+    if ($query)
+    {
+      $this->reorderTopPositions();
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Reordena las posiciones del Top 20
+   * @return void
+   */
+  private function reorderTopPositions(): void
+  {
+    $query = $this->db->query(
+      'SELECT `course_id` 
+             FROM `top_courses` 
+             ORDER BY `position` ASC'
+    );
+
+    if ($query && $query->num_rows > 0)
+    {
+      $position = 1;
+      while ($row = $query->fetch_assoc())
+      {
+        $this->db->query(
+          'UPDATE `top_courses` 
+                     SET `position` = ' . $position . ' 
+                     WHERE `course_id` = ' . intval($row['course_id'])
+        );
+        $position++;
+      }
+    }
+  }
+
+  /**
+   * Obtiene los cursos disponibles que no están en el Top 20
+   * @return array
+   */
+  public function getAvailableCoursesNotInTop(): array
+  {
+    $query = $this->db->query(
+      'SELECT c.id, c.name 
+             FROM `courses` AS c
+             WHERE c.id NOT IN (
+                 SELECT tc.course_id 
+                 FROM `top_courses` AS tc
+             )
+             AND c.status = 1
+             ORDER BY c.name ASC'
+    );
+
+    $data = [];
+    if ($query && $query->num_rows > 0)
+    {
+      while ($row = $query->fetch_assoc())
+      {
+        $data[] = $row;
+      }
+    }
+
+    return $data;
+  }
+
+
+  public function searchCoursesNotInTop(string $query): array
+  {
+    $sql = "
+        SELECT id, name 
+        FROM courses 
+        WHERE name LIKE '%" . $query . "%' 
+        AND id NOT IN (SELECT course_id FROM top_courses)
+        LIMIT 10
+    ";
+
+    $query = $this->db->query($sql);
+    if ($query and $query->num_rows > 0)
+    {
+      while ($row = $query->fetch_assoc())
+      {
+        $data[] = $row;
+      }
+      return $data;
+    }
+    return [];
+  }
+  public function moveCourseUp($courseId, $currentPosition)
+  {
+    // Mover el curso hacia arriba (intercambiar con el curso anterior)
+    $previousPosition = $currentPosition - 1;
+
+    // Escapar valores para evitar inyecciones SQL
+    $courseId = (int) $courseId;
+    $previousPosition = (int) $previousPosition;
+
+    // Realizar la actualización del curso que estaba en la posición anterior
+    $query1 = "UPDATE top_courses SET position = position + 1 WHERE position = $previousPosition";
+    $this->db->query($query1);
+
+    // Actualizar la posición del curso actual
+    $query2 = "UPDATE top_courses SET position = position - 1 WHERE course_id = $courseId";
+    $this->db->query($query2);
+  }
+
+  public function moveCourseDown($courseId, $currentPosition)
+  {
+    // Mover el curso hacia abajo (intercambiar con el curso siguiente)
+    $nextPosition = $currentPosition + 1;
+
+    // Escapar valores para evitar inyecciones SQL
+    $courseId = (int) $courseId;
+    $nextPosition = (int) $nextPosition;
+
+    // Realizar la actualización del curso que estaba en la posición siguiente
+    $query1 = "UPDATE top_courses SET position = position - 1 WHERE position = $nextPosition";
+    $this->db->query($query1);
+
+    // Actualizar la posición del curso actual
+    $query2 = "UPDATE top_courses SET position = position + 1 WHERE course_id = $courseId";
+    $this->db->query($query2);
+  }
+
+  public function getCourseByIdInTop($courseId)
+  {
+    // Escapar el valor del ID del curso para evitar inyecciones SQL
+    $courseId = (int) $courseId;  // Asegúrate de que el ID sea un número entero
+
+    // Consulta directa
+    $query = "SELECT id, position FROM top_courses WHERE course_id = $courseId AND position <= 20 LIMIT 1";
+    // Ejecutar la consulta
+    $result = $this->db->query($query);
+
+    // Verificar si la consulta ha devuelto algún resultado
+    if ($result && $result->num_rows > 0)
+    {
+      return $result->fetch_assoc(); // Devuelve el curso como un array asociativo
+    }
+
+    // Si no se encuentra el curso en el Top 20, retorna false
+    return false;
+  }
+
+  // Optiene la posicion más baja actual
+  public function getLowestPosition(): int
+  {
+    $query = $this->db->query('SELECT position FROM top_courses ORDER BY position DESC LIMIT 1');
+    return $query->num_rows > 0 ? $query->fetch_assoc()['position'] : 20;
+  }
 }

@@ -728,7 +728,8 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
             ],
             'catalogo' => [
                 'null0' => ['courses', 'view.courses'],
-                'buscar' => ['courses', 'view.courses']
+                'buscar' => ['courses', 'view.courses'],
+                'top20' => ['courses', 'top20']
             ],
             'entrenamiento' =>
             [

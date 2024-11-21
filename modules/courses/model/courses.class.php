@@ -70,6 +70,53 @@ class Courses extends Model
     return $data;
   }
 
+  /** Optiene todos los cursos */
+  public function getAllCoursesTop20($params = [], $limit = 20)
+  {
+    $where = [];
+
+    // Construir la cláusula WHERE
+    $where_clause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
+
+    // Consulta para obtener el total de resultados (sin límite de paginación)
+    $total_query = $this->db->query(
+      'SELECT COUNT(*) 
+        FROM `courses` AS c
+        INNER JOIN `top_courses` AS tc ON c.`id` = tc.`course_id`
+        ' . $where_clause
+    );
+
+    list($data['total']) = $total_query->fetch_row();
+
+    // Paginador
+    $data['pages'] = Core::model('paginator', 'core')->pageIndex(array('courses', 'top20', null, $params), $data['total'], $limit);
+
+    // Construir la consulta SQL final con paginación
+    $query = $this->db->query(
+      'SELECT tc.`id` AS top_id, c.* 
+        FROM `courses` AS c
+        INNER JOIN `top_courses` AS tc ON c.`id` = tc.`course_id`
+        ' . $where_clause . '
+        ORDER BY 
+            tc.`position` ASC
+        LIMIT ' . $data['pages']['limit']
+    );
+
+    // Contar el total de resultados
+    $data['rows'] = $query->num_rows;
+
+    // Obtener los resultados de la consulta
+    if ($query && $data['rows'] > 0)
+    {
+      while ($row = $query->fetch_assoc())
+      {
+        $data['data'][] = $row;
+      }
+    }
+
+    return $data;
+  }
+
 
   /**
    * Obtiene el curso por su ID
