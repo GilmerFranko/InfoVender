@@ -24,27 +24,29 @@
   <?php endif ?>
   <nav class="black darken-3">
     <div class="nav-wrapper center" style="max-width: 1300px; margin:auto">
-      <a href="#" class="text-logo center">LOGO</a>
+      <div class="center-align">
+        <img src="<?= $config['images_url'] . DS . 'logo.png' ?>" class="png-logo center" alt="">
+      </div>
       <br>
       <?php if ($session->is_member): ?>
         <!-- Menú principal alineado al centro -->
-        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
+        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:18px; margin-bottom: 35px;">
           <li><a href="<?= gLink('catalogo') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/dollar.png' ?>" class="icon-menu-item" class="white-text" />Catalogo$</a></li>
           <li><a href="<?= gLink('entrenamiento') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/birrete.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Entrenamiento$</a></li>
           <li><a href="<?= gLink('contactanos') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/whatsapp.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />WhatsApp$</a></li>
         </ul>
         <!-- Menú para dispositivos móviles -->
-        <ul class="center-align hide-on-large-only" style="display: flex; align-items: center; gap: 1rem; margin-top:55px; margin-bottom: 35px;">
+        <ul class="center-align hide-on-large-only" style="display: flex; align-items: center; gap: 1rem; margin-top:18px; margin-bottom: 35px;">
           <li><a href="<?= gLink('catalogo') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/dollar.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Catalogo$</a></li>
           <li><a href="<?= gLink('entrenamiento') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/birrete.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />Entrenamiento$</a></li>
           <li><a href="<?= gLink('contactanos') ?>" class="white-text valign-wrapper"><img src="<?= $config['images_url'] . '/whatsapp.png' ?>" class="icon-menu-item" class="white-text valign-wrapper" />WhatsApp$</a></li>
         </ul>
       <?php else: ?>
-        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:55px; margin-bottom: 35px;">
+        <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:18px; margin-bottom: 35px;">
           <li><a href="<?= gLink('login') ?>" class="white-text"><i class="material-icons left">lock_open</i>Iniciar Sesión</a></li>
         </ul>
         <!-- Menú para dispositivos móviles -->
-        <ul class="center-align hide-on-large-only" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top:55px; margin-bottom: 35px;">
+        <ul class="center-align hide-on-large-only" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top:18px; margin-bottom: 35px;">
           <li><a href="<?= gLink('login') ?>" class="white-text"><i class="material-icons left">lock_open</i>Iniciar Sesión</a></li>
         </ul>
       <?php endif ?>
@@ -58,14 +60,21 @@
     padding: 0 1rem;
   }
 
-  .text-logo {
-    font-weight: bold;
-    font-size: 57pt !important;
+  .png-logo {
+    display: block;
     position: unset !important;
+    width: 100%;
+    max-width: max-content;
+  }
+
+  @media (max-width: 600px) {
+    .png-logo {
+      width: 62vw;
+    }
   }
 
   nav ul li a {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 300;
   }
 
