@@ -31,7 +31,7 @@ require Core::view('head', 'core');
     <!-- Logo -->
     <div class="col s12">
       <div class="logo">
-        <img src="<?php echo Core::model('extra', 'core')->getLogo(); ?>" alt="Logo" width="160" />
+        <img src="<?php echo Core::model('extra', 'core')->getLogo(); ?>" alt="Logo" style="width: 282px;margin: 36px 0;" />
       </div>
     </div>
     <form action="<?php echo $extra->generateUrl('members', 'login'); ?>" method="post">
