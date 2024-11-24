@@ -12,10 +12,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .button-option {
     margin: 0 1rem;
+    margin-bottom: 3rem;
   }
 
   .button-option a {

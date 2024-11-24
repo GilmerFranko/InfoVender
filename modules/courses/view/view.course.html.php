@@ -14,12 +14,12 @@ require Core::view('head', 'core');
 <!-- / Header -->
 
 <section style="padding: 2rem; color: #fff; background-color: #000;">
-  <p class="antiqua center" style="font-size: 60pt; margin:0;"><?= $course['name'] ?></p>
+  <p class="title antiqua center" style="margin: 4px 0;"><span style="background-color:#04349F;"><?= $course['name'] ?></span></p>
 
-  <div style="display: flex;justify-content: center;align-items: flex-start;">
+  <div id="courseDetailsMain">
     <!-- Imagen del curso -->
     <div style="">
-      <img class="course_img" src="<?= $config['courses_url'] . '/' . $course['image'] ?>" alt="Curso <?= $course['name'] ?>">
+      <img class="course_img" src="<?= $config['courses_url'] . '/' . $course['image'] ?>" alt="Curso <?= $course['name'] ?>" style="width: 50vw; max-width:400px;">
     </div>
     <!-- Descripción del curso -->
     <div class="item_course_info">
@@ -73,6 +73,24 @@ require Core::view('head', 'core');
     font-weight: 100;
     font-size: 12px;
     padding: 5px;
+  }
+
+  #courseDetailsMain {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 780px) {
+    .item_course_info {
+      margin-left: 10px;
+      font-size: 18px;
+    }
+
+    #courseDetailsMain {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
 

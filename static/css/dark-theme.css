@@ -164,17 +164,17 @@ nav .brand-logo.center {
 
 /* Estilos cursos */
 .title {
-  font-size: 60pt;
+  font-size: 40pt;
 }
 @media only screen and (max-width: 800px) {
   .title {
-    font-size: 40pt;
+    font-size: 30pt;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .title {
-    font-size: 30pt;
+    font-size: 20pt;
   }
 }
 
@@ -204,7 +204,7 @@ nav .brand-logo.center {
 
 .item-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
   justify-items: center;
   justify-content: space-evenly;
@@ -217,7 +217,7 @@ nav .brand-logo.center {
 }
 
 .course-name {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -226,8 +226,8 @@ nav .brand-logo.center {
   justify-content: center;
   video,
   img {
-    width: 340px;
-    max-height: 400px;
+    width: 280px;
+    max-height: 336px;
   }
 }
 
@@ -244,6 +244,7 @@ nav .brand-logo.center {
   }
   .item-row {
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    width: 100%;
   }
   .course-card-action {
     display: none;
