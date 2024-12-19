@@ -13,7 +13,7 @@ require Core::view('head', 'core');
 <?php require Core::view('menu', 'core'); ?>
 <!-- / Header -->
 
-<section style="padding: 2rem; color: #fff; background-color: #000;">
+<section style="padding: 1rem; color: #fff; background-color: #000;">
   <p class="title antiqua center" style="margin: 4px 0;"><span style="background-color:#04349F;"><?= $course['name'] ?></span></p>
 
   <div id="courseDetailsMain">
@@ -93,6 +93,3 @@ require Core::view('head', 'core');
     }
   }
 </style>
-
-
-<?php require Core::view('footer', 'core'); ?>
