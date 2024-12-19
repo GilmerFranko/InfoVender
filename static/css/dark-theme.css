@@ -222,6 +222,7 @@ nav .brand-logo.center {
 .course-image {
   display: flex;
   justify-content: center;
+  height: 100%;
   video,
   img {
     width: 280px;
@@ -232,10 +233,6 @@ nav .brand-logo.center {
 @media screen and (max-width: 1320px) {
   .course-image {
     width: 100%;
-    video,
-    img {
-      width: 100%;
-    }
   }
   .course-item {
     width: 100%;

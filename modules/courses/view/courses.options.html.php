@@ -20,6 +20,13 @@
     margin-bottom: 3rem;
   }
 
+  @media (max-width: 600px) {
+    .button-option a {
+      font-size: 14px !important;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+
   .button-option a {
     border-radius: 50px;
     background-color: #278D46;
@@ -38,14 +45,13 @@
 <div class="buttons-options">
   <!-- Boton descargar -->
   <div class="button-option">
-    <a href="<?= $course['pdf_link'] ?>" target="_blank">Descargar PDF</a>
-  </div>
-  <!-- Boton Drive Videos-->
-  <div class="button-option">
-    <a href="<?= $course['video_link'] ?>" target="_blank">Ver Video</a>
-  </div>
-  <div class="button-option">
-    <a href="<?= gLink('courses/view.promocontent', ['course_id' => $course['id']]) ?>">Contenido</a>
+    <a href="<?= $course['pdf_link'] ?>" target="_blank">IR AL DRIVE DEL CURSO</a>
   </div>
 </div>
+
+<br>
+
+
+<?php require Core::view('view.promocontent', 'courses'); ?>
+
 <!--</section>-->
