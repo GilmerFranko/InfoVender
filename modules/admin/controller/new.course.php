@@ -15,6 +15,9 @@
 $page['name'] = 'Nuevo curso';
 $page['code'] = 'adminNewCourse';
 
+// Obtener el valor de post_max_size de php.ini y convertirlo a bytes
+$max_post_size = ini_get('post_max_size');
+$max_post_size_bytes = convertToBytes($max_post_size);
 
 // COMPROBAR SI SE HA ESPECIFICADO ACCION Y TIPO
 if (isset($_GET['do']))
@@ -22,6 +25,11 @@ if (isset($_GET['do']))
   // ACCIÓN SOBRE PALABRAS
   if ($_GET['do'] == 'new')
   {
+    // Verificar si CONTENT_LENGTH está configurado y si excede el límite
+    if (isset($_SERVER['CONTENT_LENGTH']) && (int)$_SERVER['CONTENT_LENGTH'] > $max_post_size_bytes)
+    {
+      $msg[] = 'El archivo es demasiado grande';
+    }
     if (!isset($_POST['name']) or empty($_POST['name']))
     {
       $msg[] = 'Debes introducir un nombre';

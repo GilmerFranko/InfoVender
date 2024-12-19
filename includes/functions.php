@@ -332,3 +332,21 @@ function obtenerExtension($cadena)
   $partes = explode('.', $cadena);
   return end($partes);
 }
+
+// Función para convertir cadenas de tamaño de php.ini (ej., "2M", "10G") a bytes
+function convertToBytes($size)
+{
+  $size = trim($size);
+  $last = strtolower($size[strlen($size) - 1]);
+  $size = (int)$size;
+  switch ($last)
+  {
+    case 'g':
+      $size *= 1024;
+    case 'm':
+      $size *= 1024;
+    case 'k':
+      $size *= 1024;
+  }
+  return $size;
+}
