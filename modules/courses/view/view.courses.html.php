@@ -29,10 +29,9 @@ require Core::view('head', 'core');
 
     <div class="ls-filters">
       Filtros:
-      <a href=""> 🔥Hot🔥 </a>
-      <a href="<?= gLink('catalogo/top20') ?>"> ( top 20 ) </a> |
-      <a href="<?= gLink('catalogo/buscar', ['search' => $params['search'] ?? '', 'order_by' => 'asc']) ?>"> Ultimos Publicados </a> |
-      <a href="#" id="btn-search"> Buscar </a>
+      <a href="<?= gLink('catalogo/top20') ?>" class="item-menu-filter"> 🔥Hot🔥 ( top 20 )</a> |
+      <a href="<?= gLink('catalogo/buscar', ['search' => $params['search'] ?? '', 'order_by' => 'asc']) ?>" class="item-menu-filter"> Ultimos Publicados </a> |
+      <a href="#" id="btn-search" class="item-menu-filter"> Buscar </a>
     </div>
     <div id="search-form" class="hide">
       <form action="<?= gLink('catalogo/buscar') ?>" method="get" style="display: flex; align-items: center;">
