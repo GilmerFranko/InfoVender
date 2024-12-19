@@ -14,7 +14,7 @@
 
 require Core::view('head', 'core');
 
-$useExampleValues = true; // Cambiar a true para usar valores de ejemplo
+$useExampleValues = false; // Cambiar a true para usar valores de ejemplo
 
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
@@ -47,13 +47,8 @@ $useExampleValues = true; // Cambiar a true para usar valores de ejemplo
         </div>
 
         <div class="input-field">
-          <label for="pdf_link">Enlace PDF</label>
+          <label for="pdf_link">Enlace al DRIVE</label>
           <input type="text" name="pdf_link" id="pdf_link" value="<?php echo $useExampleValues ? 'http://example.com/curso.pdf' : Core::model('extra', 'core')->getInputValue('pdf_link', 'post'); ?>">
-        </div>
-
-        <div class="input-field">
-          <label for="video_link">Enlace de video</label>
-          <input type="text" name="video_link" id="video_link" value="<?php echo $useExampleValues ? 'http://example.com/video.mp4' : Core::model('extra', 'core')->getInputValue('video_link', 'post'); ?>">
         </div>
 
         <div class="">
