@@ -574,6 +574,7 @@ input {
 @media (max-width: 600px) {
   section {
     margin: 10px 4px 4px 10px;
+    padding: 0;
   }
 }
 
