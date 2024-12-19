@@ -156,5 +156,5 @@ if (isset($_POST['login']) || isset($_POST['recoverBtn']))
   }
 
   // ESTABLECER MENSAJE EN LA SESION
-  setTI($message);
+  setToast($message);
 }
