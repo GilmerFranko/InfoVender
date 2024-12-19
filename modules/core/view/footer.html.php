@@ -34,7 +34,7 @@ if ($config['debug_mode'] == 1): ?>
 
 <?php
 // No mostrar footer en game.html 
-if ($sSection != 'game' and $sSection != 'bet.area' and $sSection != 'view_messages')
+if ($sModule != 'admin')
 {
 ?>
 	<footer class="page-footer darken-2 center" style="margin-bottom: 40px; margin-top:40px; font-size:12px;">
