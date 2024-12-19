@@ -1,7 +1,7 @@
 /** Colores Tema Oscuro */
 
 footer {
-  background-color: #232323 !important;
+  background-color: #000000 !important;
 }
 html {
   color: white;
@@ -109,7 +109,7 @@ body {
 }
 
 a {
-  color: white !important;
+  color: white;
 }
 .brand-logo {
   font-size: inherit !important;
@@ -179,12 +179,10 @@ nav .brand-logo.center {
 }
 
 .ls-filters {
-  color: #38a37f !important;
   font-size: 18px;
   font-weight: 600;
 
   a {
-    color: #38a37f !important;
     font-weight: 600;
   }
 }
@@ -252,6 +250,12 @@ nav .brand-logo.center {
   .course-name {
     font-size: 1.3rem;
   }
+}
+.item-menu-filter {
+  color: white !important;
+}
+.item-menu-filter:hover {
+  color: #38a37f !important;
 }
 /* FIN Estilos cursos */
 

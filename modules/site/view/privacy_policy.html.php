@@ -79,7 +79,7 @@ require Core::view('head', 'core');
 
     <div class="row">
         <div class="col s12">
-            <p>Si tienes alguna pregunta sobre esta política de privacidad, contáctanos a [correo electrónico de contacto].</p>
+            <p>Si tienes alguna pregunta sobre esta política de privacidad, <a href="<?= gLink('site/contact') ?>">contáctanos</a>.</p>
         </div>
     </div>
 </section>

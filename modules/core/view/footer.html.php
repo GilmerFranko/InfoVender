@@ -34,13 +34,29 @@ if ($config['debug_mode'] == 1): ?>
 
 <?php
 // No mostrar footer en game.html 
-/*if ($sSection != 'game' and $sSection != 'bet.area' and $sSection != 'view_messages')
+if ($sSection != 'game' and $sSection != 'bet.area' and $sSection != 'view_messages')
 {
 ?>
-	<footer class="page-footer darken-2 center" style="margin-bottom: 60px;">
+	<footer class="page-footer darken-2 center" style="margin-bottom: 40px; margin-top:40px; font-size:12px;">
 		<div class="footer-copyright">
 			<div class="container">
-
+				<img src="<?php echo $config['images_url'] . '/logo.png' ?>" width="216" style="margin: 20px;">
+				<div class="row center-align">
+					<div class="col s12" style="display: flex;align-items: center;justify-content: center;">
+						<div style="margin: 0 20px">
+							<?php if (!empty($config['facebook_url'])): ?>
+								<a href="<?= $config['facebook_url'] ?>"><img src="<?php echo $config['images_url'] . '/facebook-logo.png' ?>" width="35" alt="facebook-logo"></a>
+							<?php endif; ?>
+							<?php if (!empty($config['instagram_url'])): ?>
+								<a href="<?= $config['instagram_url'] ?>"><img src="<?php echo $config['images_url'] . '/instagram-logo.webp' ?>" width="35" alt="instagram-logo"></a>
+							<?php endif; ?>
+							<?php if (!empty($config['tiktok_url'])): ?>
+								<a href="<?= $config['tiktok_url'] ?>"><img src="<?php echo $config['images_url'] . '/tiktok-logo.png' ?>" width="35" alt="tiktok-logo"></a>
+							<?php endif; ?>
+							<a href="<?= gLink('contactanos') ?>"><img src="<?php echo $config['images_url'] . '/whatsapp.png' ?>" width="35" alt="whatsapp-logo"></a>
+						</div>
+					</div>
+				</div>
 				<div class="footer-information row center-align">
 					<div class="col s6">
 						<h5>Sobre Nosotros</h5>
@@ -51,16 +67,22 @@ if ($config['debug_mode'] == 1): ?>
 					</div>
 					<div class="col s6">
 						<h5>Comunidad</h5>
-						<a href="">Facebook</a><br>
-						<a href="">Instagram</a><br>
-						<a href="">Twich</a><br>
-						<a href="">Discord</a><br>
+						<?php if (!empty($config['facebook_url'])): ?>
+							<a href="<?= $config['facebook_url'] ?>">Facebook</a><br>
+						<?php endif; ?>
+						<?php if (!empty($config['instagram_url'])): ?>
+							<a href="<?= $config['instagram_url'] ?>">Instagram</a><br>
+						<?php endif; ?>
+						<?php if (!empty($config['tiktok_url'])): ?>
+							<a href="<?= $config['tiktok_url'] ?>">Tiktok</a><br>
+						<?php endif; ?>
+						<a href="<?= gLink('contactanos') ?>">Whatsapp</a><br>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-<?php } */ ?>
+<?php } ?>
 </body>
 
 </html>

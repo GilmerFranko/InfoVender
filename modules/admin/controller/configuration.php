@@ -37,9 +37,25 @@ if (isset($_POST['save']))
         $message[] = 'Debes introducir un tiempo de cookie';
     }
 
+    if (!isset($_POST['facebook_url']) or empty($_POST['facebook_url']))
+    {
+        //$message[] = ['Debes introducir una URL de Facebook'];
+    }
+
+    if (!isset($_POST['instagram_url']) or empty($_POST['instagram_url']))
+    {
+        // $message[] = ['Debes isntroducir una URL de Instagram'];
+    }
+
+    if (!isset($_POST['tiktok_url']) or empty($_POST['tiktok_url']))
+    {
+        //$message[] = ['Debes instroducir un usuario de TikTok'];
+    }
+
+
     if (!isset($_POST['num_phone']) or empty($_POST['num_phone']))
     {
-        $message[] = 'Debes introducir un número de teléfono';
+        $message[] = ['Debes introducir un número de teléfono'];
     }
 
 
@@ -61,6 +77,12 @@ if (isset($_POST['save']))
             $data['cookie_time'] = empty($_POST['cookie_time']) ? 15 : (int)$_POST['cookie_time'];
             // CANTIDAD DE MENSAJES POR CANAL
             $data['limit_globals_messages'] = empty($_POST['limit_globals_messages']) ? 100 : (int)$_POST['limit_globals_messages'];
+            // URL DE FACEBOOK
+            $data['facebook_url'] = empty($_POST['facebook_url']) ? '' : $_POST['facebook_url'];
+            // URL DE INSTAGRAM
+            $data['instagram_url'] = empty($_POST['instagram_url']) ? '' : $_POST['instagram_url'];
+            // URL DE TIKTOK
+            $data['tiktok_url'] = empty($_POST['tiktok_url']) ? '' : $_POST['tiktok_url'];
             // ESTABLECER NUMERO DE TELÉFONO
             $data['num_phone'] = escape($_POST['num_phone']);
             // ELEGIR RANGO POR DEFECTO

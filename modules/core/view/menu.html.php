@@ -27,7 +27,6 @@
       <div class="center-align">
         <img src="<?= $config['images_url'] . DS . 'logo.png' ?>" class="png-logo center" alt="">
       </div>
-      <br>
       <?php if ($session->is_member): ?>
         <!-- Menú principal alineado al centro -->
         <ul class="center-align hide-on-med-and-down" style="display: flex; justify-content: space-between; gap: 2rem; margin-top:18px; margin-bottom: 35px;">

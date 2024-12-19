@@ -45,13 +45,6 @@ require Core::view('head', 'core');
             <label for="cookie_time" class="active">Tiempo de cookie (d&iacute;as)</label>
           </div>
         </div>
-
-
-        <div class="input-field">
-          <i class="material-icons prefix">phone</i>
-          <input type="tel" id="num_phone" name="num_phone" class="validate" value="<?php echo $config['num_phone']; ?>">
-          <label for="num_phone">Número de teléfono (Añadir codigo +)</label>
-        </div>
         <!-- CONFIGURACIÓN EXTRA -->
         <div class="row">
           <div class="input-field col s6" title="Si esta activo, el sitio queda inactivo para los usuarios">
@@ -97,6 +90,35 @@ require Core::view('head', 'core');
               </label>
             </div>
             <label for="enable_email_on_message" class="active">Enviar email al recibir un mensaje</label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">facebook</i>
+            <input type="tel" id="facebook_url" name="facebook_url" class="validate" value="<?php echo $config['facebook_url']; ?>">
+            <label for="facebook_url">URL de Facebook</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">whatshot</i>
+            <input type="tel" id="instagram_url" name="instagram_url" class="validate" value="<?php echo $config['instagram_url']; ?>">
+            <label for="instagram_url">URL de Instagram</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">tiktok</i>
+            <input type="tel" id="tiktok_url" name="tiktok_url" class="validate" value="<?php echo $config['tiktok_url']; ?>">
+            <label for="tiktok_url">URL de Tiktok</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">whatsapp</i>
+            <input type="tel" id="num_phone" name="num_phone" class="validate" value="<?php echo $config['num_phone']; ?>">
+            <label for="num_phone">Número de teléfono (Añadir codigo +)</label>
           </div>
         </div>
 
