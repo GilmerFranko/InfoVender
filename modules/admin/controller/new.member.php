@@ -19,7 +19,7 @@ $page['code'] = 'adminNewMember';
 if (isset($_POST['register']))
 
 {
-  if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email']))
+  if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email']) and !empty($_POST['full_num_phone']))
   {
     // COMPROBAR NOMBRE Y EMAIL CORRECTOS
     if (preg_match("/^([a-zA-Z ]{4,30}+)$/isu", $_POST['name'])  && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
@@ -32,35 +32,48 @@ if (isset($_POST['register']))
         // Generar contrase&ntilde;a
         $memberData['password'] = password_hash($memberData['password'], PASSWORD_DEFAULT);
         // Generar sexo
-        $memberData['gender'] = in_array($memberData['gender'], array(0, 1, 2)) ? $memberData['gender'] : 0;
+        $memberData['gender'] = 1; //in_array($memberData['gender'], array(0, 1, 2)) ? $memberData['gender'] : 0;
+        // Fecha de nacimiento
+        $memberData['birthday'] = '0000-00-00'; //in_array($memberData['birthday'], array(0, 1, 2)) ? $memberData['birthday'] : '0000-00-00';
         // Email
         $memberData['email'] = strtolower($memberData['email']);
+        // Teléfono
+        $memberData['num_phone'] = escape($_POST['full_num_phone']);
         // Foto de perfil
         $memberData['pp_main_photo'] = ($memberData['gender'] == 0) ? $config['default_male_profile_photo'] : $config['default_female_profile_photo'];
         //
         $memberData['pp_expiration'] = $memberData['pp_expiration'] == 0 ? strtotime(date('Y-m-d')) : strtotime($memberData['pp_expiration']);
 
+        // Comprobar si existe un usuario registrado con los datos proporcionados
         if (Core::model('member', 'members')->checkUserExists($memberData['name'], $memberData['email']) === false)
         {
-          $memberData['member_id'] = Core::model('access', 'members')->signIn($memberData, false);
-          //
-          if (is_numeric($memberData['member_id']))
+          // Comprobar existe un usuario registrado con el numero de telefono
+          if (Core::model('member', 'members')->checkPhoneExists($memberData['num_phone']) === false)
           {
+            $memberData['member_id'] = Core::model('access', 'members')->signIn($memberData, false);
+            //
+            if (is_numeric($memberData['member_id']))
+            {
+              $message[] = array('El usuario ha sido registrado correctamente', 'success');
+              // Identifica al usuario
+              //Core::model('access', 'members')->login($memberData['member_id']);
+              // Redirige a la cuenta
+              //Core::model('extra', 'core')->generateUrl('members', 'account', null, null, true);
 
-            // Identifica al usuario
-            //Core::model('access', 'members')->login($memberData['member_id']);
-            // Redirige a la cuenta
-            //Core::model('extra', 'core')->generateUrl('members', 'account', null, null, true);
-
+            }
+            else
+            {
+              $message[] = array('No hemos podido registrarte', 'error');
+            }
           }
           else
           {
-            $message[] = array('No hemos podido registrarte', 'error');
+            $message[] = array('Ya existe un usuario registrado con este numero de telefono, o ha ocurrido un error. Int&eacute;ntalo m&aacute;s tarde.', 'error');
           }
         }
         else
         {
-          $message[] = array('Ya existe un usuario registrado con este nombre, o ha ocurrido un error. Int&eacute;ntalo m&aacute;s tarde.', 'error');
+          $message[] = array('Ya existe un usuario registrado con este nombre o email, o ha ocurrido un error. Int&eacute;ntalo m&aacute;s tarde.', 'error');
         }
       }
       else

@@ -60,3 +60,5 @@ require Core::view('head', 'core');
 <!-- JS adicional -->
 <script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js" />
 </script>
+
+<?php require Core::view('footer', 'core'); ?>

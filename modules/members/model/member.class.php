@@ -45,6 +45,30 @@ class Member extends Session
   }
 
   /**
+   * Comprueba si existe un usuario registrado con el numero de telefono
+   *
+   * @param string $username
+   * @param string $email
+   * @param int    $member_id
+   * @return boolean
+   */
+  function checkPhoneExists($phone = '', $member_id = 0)
+  {
+    /* ID DE USUARIO */
+    $memberData['member_id'] = $member_id > 0 ? $member_id : $this->session->memberData['member_id'];
+    /* CONSULTA A BD */
+    $query = $this->db->query('SELECT `member_id` FROM `members` WHERE `num_phone` = \'' . $this->db->real_escape_string($phone) . '\' && `member_id` != \'' . $memberData['member_id'] . '\' LIMIT 1');
+
+    /* */
+    if ($query == true && $query->num_rows > 0)
+    {
+      return true;
+    }
+    /*  */
+    return false;
+  }
+
+  /**
    * Comprueba si un usuario existe
    *
    * @param int $member_id

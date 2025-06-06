@@ -85,7 +85,7 @@ class Access extends Model
         }
 
         // REGISTRA EN LA BASE DE DATOS
-        $query = $this->db->query('INSERT INTO `members` SET `name` = \'' . escape($member['name']) . '\',`password` = \'' . escape($member['password']) . '\',`group_id` = \'' . $member_group . '\',`email` = \'' . escape($member['email']) . '\',`birthday` = \'' . escape($member['birthday']) . '\',`ip_address` = \'' . escape(Core::model('extra', 'core')->getIp()) . '\',`pp_full_name` = \'' . escape($member['name']) . '\',`pp_main_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_thumb_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_gender` = \'' . $member['gender'] . '\',`pp_joined` = \'' . time() . '\', `pp_expiration` = \'' . $member['pp_expiration'] . '\'');
+        $query = $this->db->query('INSERT INTO `members` SET `name` = \'' . escape($member['name']) . '\',`password` = \'' . escape($member['password']) . '\',`group_id` = \'' . $member_group . '\',`email` = \'' . escape($member['email']) . '\', `num_phone` = \'' . escape($member['num_phone']) . '\',`birthday` = \'' . escape($member['birthday']) . '\',`ip_address` = \'' . escape(Core::model('extra', 'core')->getIp()) . '\',`pp_full_name` = \'' . escape($member['name']) . '\',`pp_main_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_thumb_photo` = \'' . escape($member['pp_main_photo']) . '\',`pp_gender` = \'' . $member['gender'] . '\',`pp_joined` = \'' . time() . '\', `pp_expiration` = \'' . $member['pp_expiration'] . '\'');
 
         //
         if ($query == true)

@@ -112,6 +112,7 @@ if (isset($_POST['ajax']))
                 $memberData = array_map('htmlspecialchars', $_POST);
                 $member['name'] = $memberData['name'];
                 $member['email'] = strtolower($memberData['email']);
+                $member['num_phone'] = isset($memberData['num_phone']) ? htmlspecialchars($memberData['num_phone']) : '';
                 $member['pp_gender'] = empty($memberData['pp_gender']) ? '0' : '1';
                 $member['group_id'] = ctype_digit($memberData['group_id']) ? $memberData['group_id'] : $config['reg_group'];
                 $member['banned'] = empty($memberData['banned']) ? 0 : time();
