@@ -45,12 +45,13 @@ body {
       width: 32px;
     }
   }
-  @media only screen and (max-width: 450px) {
-    nav ul {
-      flex-direction: column !important;
-    }
+  @media only screen and (max-width: 500px) {
     .icon-menu-item {
       width: 22px;
+    }
+    nav ul li a {
+      font-size: 0.9rem !important;
+      padding: 0 8px;
     }
   }
   .card {
@@ -225,7 +226,8 @@ nav .brand-logo.center {
   height: 100%;
   video,
   img {
-    width: 280px;
+    width: 100%;
+    min-width: 150px;
     max-height: 336px;
   }
 }
