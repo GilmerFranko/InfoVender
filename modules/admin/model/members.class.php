@@ -88,6 +88,25 @@ class Members extends Model
     }
 
     /**
+     * Actualiza la fecha de expiración de un usuario
+     *
+     * @param int $member_id
+     * @param int $expiration
+     * @return boolean
+     */
+    function updateExpiration($member_id, $expiration)
+    {
+        $query = $this->db->query('UPDATE `members` SET `pp_expiration` = ' . $expiration . ' WHERE `member_id` = \'' . $member_id . '\' LIMIT 1');
+
+        error_log('UPDATE `members` SET `pp_expiration` = ' . $expiration . ' WHERE `member_id` = \'' . $member_id . '\' LIMIT 1');
+        if ($query and $this->db->affected_rows > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Obtiene cantidad de usuarios conectados
      *
      * @param int $min
