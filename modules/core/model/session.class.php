@@ -63,7 +63,7 @@ class Session extends Model
         else*/
     if (isset($_COOKIE[$this->config['cookie_name']]))
     {
-      $query = $this->db->query('SELECT m.*, g.* FROM `members` AS m LEFT JOIN `members_groups` AS g ON m.`group_id` = g.`g_id` WHERE m.`session` = \'' . $this->db->real_escape_string($_COOKIE[$this->config['cookie_name']]) . '\' AND m.`banned` = 0 AND (m.`pp_expiration` > UNIX_TIMESTAMP() OR (m.`group_id` = 2 OR m.`group_id` = 1)) LIMIT 1');
+      $query = $this->db->query('SELECT m.*, g.* FROM `members` AS m LEFT JOIN `members_groups` AS g ON m.`group_id` = g.`g_id` WHERE m.`session` = \'' . $this->db->real_escape_string($_COOKIE[$this->config['cookie_name']]) . '\' AND m.`banned` = 0 LIMIT 1');
       //
       if ($query == true && $query->num_rows > 0)
       {
@@ -74,6 +74,8 @@ class Session extends Model
         $this->is_banned = $this->memberData['banned'] > 0 ? true : false;
         // ¿ES MIEMBRO?
         $this->is_member = $this->memberData['member_id'] != '0' ? true : false;
+        // ¿ES VIP?
+        $this->is_vip = $this->memberData['pp_expiration'] > time() ? true : false;
         // CóDIGO DE SEGURIDAD
         $this->token = md5('token' . $this->memberData['session']);
         // ¿ES MODERADOR - ADMINISTRADOR?

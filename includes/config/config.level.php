@@ -15,6 +15,7 @@
  * NIVEL 2 = SOLO REGISTRADOS
  * NIVEL 3 = MODERADORES Y ADMINISTRADORES
  * NIVEL 4 = SOLO ADMINISTRADORES
+ * NIVEL 5 = SOLO VIP
  *
  */
 
@@ -65,8 +66,9 @@ $section['mod']['reports'] = array('level' => 3, 'message' => 'Puedes denunciar,
 //$section['wallet'] = array('level' => 2, 'message' => 'No tienes permisos para acceder', 'url' => '/');
 
 // Cursos
-$section['courses'] = array('level' => 2, 'message' => 'No tienes permisos para acceder', 'url' => '/');
+$section['courses'] = array('level' => 5, 'message' => 'No tienes permisos para acceder', 'url' => '/');
 
+// 
 
 /* Se realizan las comprobaciones */
 if (isset($section[$sModule][$sSection]))

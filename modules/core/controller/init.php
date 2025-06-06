@@ -49,7 +49,7 @@ $codeBuilder = new JBBCode\CodeDefinitionBuilder('code', '<pre><code class="bg-d
 $parser->addCodeDefinition($codeBuilder->build());
 
 // ESTABLECE ZONA HORARIA EN LA QUE SE BASAN LAS PUBLICACIONES
-date_default_timezone_set($session->memberData['pp_timezone']);
+date_default_timezone_set('America/Mexico_City');
 $extra->db->set_charset('utf8');
 $extra->db->query('SET NAMES  "utf8"');
 $extra->db->query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");

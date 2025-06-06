@@ -404,6 +404,16 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
                 if (isset($message)) $message = 'Est&aacute;s intentando algo no permitido.';
             }
         }
+        // SÓLO VIP
+        elseif ($level == 5)
+        {
+            if ($this->session->is_vip == true or $this->session->is_admod) return true;
+            else
+            {
+                if (isset($redirTo)) $this->redirectTo('/');
+                if (isset($message)) $message = 'Esta p&aacute;gina s&oacute;lo puede ser vista por usuarios VIP.';
+            }
+        }
         else
         {
             $message = 'Error desconocido';
