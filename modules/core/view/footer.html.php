@@ -57,6 +57,10 @@ if ($sModule != 'admin')
 						</div>
 					</div>
 				</div>
+				<!--Cuenta -->
+				<div>
+					<span><?php echo strtoupper($session->memberData['name']) ?> - <b><a href="<?= gLink('members/logout', ['token' => $session->token]) ?>">Cerrar Sesi&oacute;n</a></b></span>
+				</div>
 				<div class="footer-information row center-align">
 					<div class="col s6">
 						<h5>Sobre Nosotros</h5>
