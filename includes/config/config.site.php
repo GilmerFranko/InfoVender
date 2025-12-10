@@ -34,6 +34,10 @@ $config['bulkemails_path']   = $config['base_path'] . 'filestore' . DS . 'upload
 $config['courses_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'courses';
 $config['courses_url']   = $config['base_url'] . '/filestore/uploads/courses';
 
+// imagenes de los productos
+$config['products_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'products';
+$config['products_url']   = $config['base_url'] . '/filestore/uploads/products';
+
 // Imagenes de las fases
 $config['phases_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'phases';
 $config['phases_url']   = $config['base_url'] . '/filestore/uploads/phases';

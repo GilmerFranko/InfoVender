@@ -745,6 +745,16 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
             [
                 'null0' => ['courses', 'view.phases'],
             ],
+            'revendedores' =>
+            [
+                'null0' => ['courses', 'view.products'],
+                'buscar' => ['courses', 'view.products'],
+            ],
+            'productos' =>
+            [
+                'null0' => ['courses', 'view.products'],
+                'buscar' => ['courses', 'view.products'],
+            ],
             'contactanos' =>
             [
                 'null0' => ['site', 'contact2'],

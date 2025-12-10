@@ -48,6 +48,17 @@ $parser->addCodeDefinition($youtubeCode->build());
 $codeBuilder = new JBBCode\CodeDefinitionBuilder('code', '<pre><code class="bg-dark text-light p-2 rounded">{param}</code></pre>');
 $parser->addCodeDefinition($codeBuilder->build());
 
+// Definir el BBCode para listas ul y li
+$ulCode = new JBBCode\CodeDefinitionBuilder('ul', '<ul>{param}</ul>');
+$liCode = new JBBCode\CodeDefinitionBuilder('li', '<li>{param}</li>');
+$parser->addCodeDefinition($ulCode->build());
+$parser->addCodeDefinition($liCode->build());
+
+// Definir el BBCode para ol
+$olCode = new JBBCode\CodeDefinitionBuilder('ol', '<ol>{param}</ol>');
+$parser->addCodeDefinition($olCode->build());
+
+
 // ESTABLECE ZONA HORARIA EN LA QUE SE BASAN LAS PUBLICACIONES
 date_default_timezone_set('America/Mexico_City');
 $extra->db->set_charset('utf8');

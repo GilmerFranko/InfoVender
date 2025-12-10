@@ -113,9 +113,20 @@
                 echo ' class="active"';
               } ?>>
             <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'top20'); ?>">
-              <i class="material-icons">format_list_numbered
+              <i class="material-icons">whatshot
               </i>
               Top 20
+            </a>
+          </li>
+
+          <li <?php if ($sSection == 'products')
+              {
+                echo ' class="active"';
+              } ?>>
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'products'); ?>">
+              <i class="material-icons">local_offer
+              </i>
+              Productos
             </a>
           </li>
 
