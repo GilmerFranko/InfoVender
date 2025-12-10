@@ -101,12 +101,18 @@ class Product extends Model
    * @param string $slug El slug a verificar
    * @return bool
    */
-  public function isSlugAvailable(string $slug): bool
+  public function isSlugAvailable(string $slug, int $product_id): bool
   {
+    $where = 'WHERE p.`slug` = "' . $slug . '"';
+
+    if ($product_id)
+      $where .= ' AND p.`id` != ' . intval($product_id);
+
     $query = $this->db->query(
       'SELECT COUNT(*) 
        FROM `products` AS p 
-       WHERE p.`slug` = "' . $slug . '"'
+       ' . $where . '
+       '
     );
 
     if ($query && $query->num_rows > 0)

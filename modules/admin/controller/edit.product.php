@@ -44,7 +44,7 @@ if (isset($_GET['edit_product']))
 
     $slugtmp = cleanSlug(cleanString($_POST['slug']));
     // Verifica que el slug no esté en uso por otro producto
-    if (!loadclass('admin/product')->isSlugAvailable($slugtmp))
+    if (!loadclass('admin/product')->isSlugAvailable($slugtmp, cleanInput($_GET['product_id'])))
     {
       $msg[] = 'El slug introducido está en uso por otro producto';
     }
