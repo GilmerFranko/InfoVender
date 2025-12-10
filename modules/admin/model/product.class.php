@@ -101,11 +101,11 @@ class Product extends Model
    * @param string $slug El slug a verificar
    * @return bool
    */
-  public function isSlugAvailable(string $slug, int $product_id): bool
+  public function isSlugAvailable(string $slug, int $product_id = null): bool
   {
     $where = 'WHERE p.`slug` = "' . $slug . '"';
 
-    if ($product_id)
+    if ($product_id != null)
       $where .= ' AND p.`id` != ' . intval($product_id);
 
     $query = $this->db->query(
