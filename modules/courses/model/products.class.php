@@ -96,4 +96,25 @@ class Products extends Model
 
     return null;
   }
+
+  /**
+   * Obtiene el producto por su slug
+   * @param string $slug
+   * @return array|null
+   */
+  public function getProductBySlug(string $slug): ?array
+  {
+    $query = $this->db->query(
+      'SELECT * 
+       FROM `products` AS c 
+       WHERE c.`slug` = "' . $slug . '"'
+    );
+
+    if ($query && $query->num_rows > 0)
+    {
+      return $query->fetch_assoc();
+    }
+
+    return null;
+  }
 }

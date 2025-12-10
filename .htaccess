@@ -40,6 +40,9 @@ RewriteEngine On
 # Redirecciona URL cron.php a cron.php
 RewriteRule ^cron.php$ cron.php [NC,L,QSA]
 
+# Redirecciona URLs para "region" antes de reglas más generales
+RewriteRule ^producto/([^/]+)$ index.php?app=courses&section=view.product&product_id=$1 [NC,L,QSA]
+
 # Reglas generales de reescritura
 # redirige a la sección principal de cada app si no se especifica sección
 RewriteRule ^(/)$ index.php?app=$1&section=null0 [NC,QSA,L]

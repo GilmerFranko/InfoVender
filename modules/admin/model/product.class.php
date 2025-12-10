@@ -96,6 +96,28 @@ class Product extends Model
     return null;
   }
 
+  /**
+   * Verifica si un slug ya existe en la tabla products
+   * @param string $slug El slug a verificar
+   * @return bool
+   */
+  public function isSlugAvailable(string $slug): bool
+  {
+    $query = $this->db->query(
+      'SELECT COUNT(*) 
+       FROM `products` AS p 
+       WHERE p.`slug` = "' . $slug . '"'
+    );
+
+    if ($query && $query->num_rows > 0)
+    {
+      list($count) = $query->fetch_row();
+
+      return $count == 0;
+    }
+
+    return false;
+  }
 
   /**
    * Crea un nuevo producto

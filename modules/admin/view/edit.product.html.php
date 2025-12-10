@@ -29,11 +29,25 @@ require Core::view('head', 'core');
           <input type="text" name="name" id="name" value="<?= $product['name'] ?>" required>
         </div>
 
+        <div class="grid-container" style="display: flex; ">
+          <div class="grid-item">
+            <p class="flow-text">
+              <span class="grey-text" style="  font-size: 13px;"><?php echo str_replace('https://', '', $config['base_url']) ?>/producto/</span><span class="black-text"></span>
+            </p>
+          </div>
+          <div class="grid-item">
+            <div class="input-field">
+              <label for="slug">Slug</label>
+              <input type="text" name="slug" id="slug" value="<?= $product['slug'] ?>" style="font-size: 13px; height: 59px;" required>
+            </div>
+          </div>
+        </div>
+        <br>
         <div class="input-field">
           <label for="description">Descripción</label>
           <textarea name="description" id="description" class="materialize-textarea wysiwyg-editor" required><?= bbbr2nl($product['description']) ?></textarea>
         </div>
-
+        <br>
         <div class="input-field">
           <label for="price">Precio</label>
           <input type="number" name="price" id="price" value="<?= $product['price'] ?>" required>

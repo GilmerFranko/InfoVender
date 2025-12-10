@@ -22,11 +22,21 @@ if (!isset($_GET['product_id']))
   $msg = 'No se ha enviado el ID del producto.';
 }
 
-$productId = intval($_GET['product_id']);
+$productId = $_GET['product_id'];
 
-if (!$product = loadClass('courses/products')->getProductById($productId))
+if (is_string($productId))
 {
-  $msg = 'El producto no existe.';
+  if (!$product = loadClass('courses/products')->getProductBySlug($productId))
+  {
+    $msg = 'El producto no existe.';
+  }
+}
+else
+{
+  if (!$product = loadClass('courses/products')->getProductById($productId))
+  {
+    $msg = 'El producto no existe.';
+  }
 }
 
 if (empty($msg))

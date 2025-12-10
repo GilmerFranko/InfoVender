@@ -13,7 +13,7 @@
  */
 ?>
 
-<div id="product<?= $product['id'] ?>" class="course-item" style="display: flex; flex-direction: column; align-items: center;max-width: max-content;" onclick="location.href='<?= gLink('courses/view.product', ['product_id' => $product['id']]) ?>'">
+<div id="product<?= $product['id'] ?>" class="course-item" style="display: flex; flex-direction: column; align-items: center;max-width: max-content;" onclick="location.href='<?= gLink('producto/' . $product['slug']) ?>'">
 
   <div class="course-image">
     <?php if ($session->is_admod): ?>

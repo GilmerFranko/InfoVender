@@ -32,6 +32,20 @@ $useExampleValues = false; // Cambiar a true para usar valores de ejemplo
           <input type="text" name="name" id="name" value="<?php echo $useExampleValues ? 'Ejemplo de Producto' : Core::model('extra', 'core')->getInputValue('name', 'post'); ?>" required>
         </div>
 
+        <div class="grid-container" style="display: flex; ">
+          <div class="grid-item">
+            <p class="flow-text">
+              <span class="grey-text" style="  font-size: 13px;"><?php echo str_replace('https://', '', $config['base_url']) ?>/producto/</span><span class="black-text"></span>
+            </p>
+          </div>
+          <div class="grid-item">
+            <div class="input-field">
+              <label id="labelslug" for="slug" style="top: 10px">Slug <small>(opcional)</small></label>
+              <input type="text" name="slug" id="slug" value="" style="font-size: 13px; height: 59px;" required>
+            </div>
+          </div>
+        </div>
+
         <div class="input-field">
           <label for="description">Descripción</label>
           <textarea name="description" id="description" class="materialize-textarea wysiwyg-editor" required><?php echo $useExampleValues ? 'Descripción de ejemplo para el producto.' : Core::model('extra', 'core')->getInputValue('description', 'post'); ?></textarea>
@@ -69,5 +83,13 @@ $useExampleValues = false; // Cambiar a true para usar valores de ejemplo
     locale: 'es', // Ajusta el idioma si es necesario
     width: '100%',
     height: '200px',
+  });
+
+  $('#name').on('keyup', function() {
+    var name = $(this).val();
+    var slug = name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    var randomString = Math.floor(Math.random() * 1000).toString().substr(0, 3);
+    $('#slug').val(slug + '-' + randomString);
+    $('#labelslug').addClass('active');
   });
 </script>

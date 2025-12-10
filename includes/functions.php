@@ -350,3 +350,67 @@ function convertToBytes($size)
   }
   return $size;
 }
+
+
+/**
+ * Normaliza una cadena para usarla como slug.
+ * - Convierte a UTF-8
+ * - Transliteración (iconv) si está disponible
+ * - Remueve caracteres no alfanuméricos reemplazándolos por guiones
+ * - Colapsa guiones repetidos y recorta guiones al inicio/fin
+ * - Convierte a minúsculas y limita longitud
+ *
+ * @param string $text Texto a normalizar
+ * @param int $maxLength Longitud máxima del slug (0 para ilimitado)
+ * @return string Slug limpio (si queda vacío devuelve 'n-a')
+ */
+function cleanSlug($text, $maxLength = 200)
+{
+  $text = (string)$text;
+  $text = trim($text);
+
+  // Asegurar codificación UTF-8
+  $text = mb_convert_encoding($text, 'UTF-8', 'UTF-8');
+
+  // Intentar transliterar caracteres UTF-8 a ASCII (eg. á -> a)
+  if (extension_loaded('iconv'))
+  {
+    $trans = @iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+    if ($trans !== false)
+    {
+      $text = $trans;
+    }
+  }
+
+  // Reemplazo manual para algunos caracteres si iconv no cubre todos los casos
+  $map = array(
+    'À'=>'A','Á'=>'A','Â'=>'A','Ã'=>'A','Ä'=>'A','Å'=>'A','Æ'=>'AE','Ç'=>'C','È'=>'E','É'=>'E','Ê'=>'E','Ë'=>'E',
+    'Ì'=>'I','Í'=>'I','Î'=>'I','Ï'=>'I','Ð'=>'D','Ñ'=>'N','Ò'=>'O','Ó'=>'O','Ô'=>'O','Õ'=>'O','Ö'=>'O','Ø'=>'O',
+    'Ù'=>'U','Ú'=>'U','Û'=>'U','Ü'=>'U','Ý'=>'Y','Þ'=>'TH','ß'=>'ss','à'=>'a','á'=>'a','â'=>'a','ã'=>'a','ä'=>'a',
+    'å'=>'a','æ'=>'ae','ç'=>'c','è'=>'e','é'=>'e','ê'=>'e','ë'=>'e','ì'=>'i','í'=>'i','î'=>'i','ï'=>'i','ð'=>'d',
+    'ñ'=>'n','ò'=>'o','ó'=>'o','ô'=>'o','õ'=>'o','ö'=>'o','ø'=>'o','ù'=>'u','ú'=>'u','û'=>'u','ü'=>'u','ý'=>'y',
+    'þ'=>'th','ÿ'=>'y','Ŕ'=>'R','ŕ'=>'r'
+  );
+  $text = strtr($text, $map);
+
+  // Pasar a minúsculas
+  $text = strtolower($text);
+
+  // Reemplazar cualquier caracter no alfanumérico por guiones
+  $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+
+  // Colapsar guiones múltiples
+  $text = preg_replace('/-+/', '-', $text);
+
+  // Eliminar guiones del inicio y fin
+  $text = trim($text, '-');
+
+  // Limitar longitud
+  if ($maxLength > 0 && strlen($text) > $maxLength)
+  {
+    $text = substr($text, 0, $maxLength);
+    $text = rtrim($text, '-');
+  }
+
+  return $text === '' ? 'n-a' : $text;
+}

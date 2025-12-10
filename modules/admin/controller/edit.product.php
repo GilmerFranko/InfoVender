@@ -34,6 +34,27 @@ if (isset($_GET['edit_product']))
     $msg[] = 'Debes introducir un precio';
   }
 
+  // Si se ha introducido un slug
+  if (isset($_POST['slug']) && !empty($_POST['slug']))
+  {
+    if (strlen($_POST['slug']) < 3)
+    {
+      $msg[] = 'El slug debe tener al menos 3 caracteres';
+    }
+
+    $slugtmp = cleanSlug(cleanString($_POST['slug']));
+    // Verifica que el slug no esté en uso por otro producto
+    if (!loadclass('admin/product')->isSlugAvailable($slugtmp))
+    {
+      $msg[] = 'El slug introducido está en uso por otro producto';
+    }
+    else
+    {
+      $slug = $slugtmp;
+    }
+  }
+
+
   // Si no hay mensajes de error, proceder a editar el producto
   if (empty($msg))
   {
@@ -43,6 +64,11 @@ if (isset($_GET['edit_product']))
       'price' => cleanString($_POST['price']),
       'status' => (isset($_POST['status']) and !is_int($_POST['status'])) ? cleanString($_POST['status']) : 1,
     ];
+
+    // Si la variable slug está definida, actualizar el slug
+    if (isset($slug))
+      $data['slug'] = $slug;
+
 
     $bbcode = $_POST['description'] ?? '';
     // Parsear el BBCode
