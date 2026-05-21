@@ -101,7 +101,7 @@ class Product extends Model
    * @param string $slug El slug a verificar
    * @return bool
    */
-  public function isSlugAvailable(string $slug, int $product_id = null): bool
+  public function isSlugAvailable(string $slug, $product_id = null): bool
   {
     $where = 'WHERE p.`slug` = "' . $slug . '"';
 
